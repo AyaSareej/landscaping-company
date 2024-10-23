@@ -108,7 +108,7 @@ const Login = () => {
                     </a>
                   </p>
                   <p>
-                    FORGOT PASSWORD?{" "}
+                    FORGOT PASSWORD?
                     <a
                       href="#"
                       className="text-custom-teal font-normal hover:underline"

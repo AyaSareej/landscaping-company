@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 
 function Signup() {
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [username, setUsername] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,14 +28,25 @@ function Signup() {
       return;
     }
 
-    // Handle password change logic (e.g., API call)
-    setSuccessMessage("Password changed successfully!");
+    // Handle signup logic (e.g., API call)
+    setSuccessMessage("Signup successful!");
+  };
+
+  const handleProfilePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
     <div className="flex flex-col h-screen">
       {/* Green Top Towel */}
-      <div className="w-full h-16 bg-gradient-to-r from-custom-dark-teal to-custom-teal"></div>
+      <div className="w-full h-16 bg-gradient-to-r from-custom-dark-teal to-custom-teal z-10"></div>
 
       {/* Main Content: Split into two sections */}
       <div className="flex flex-1 flex-col md:flex-row relative">
@@ -40,29 +57,28 @@ function Signup() {
             alt="Background"
             className="w-full h-full object-cover"
           />
-          {/* White Circle Overlay with RGBA for background */}
+          {/* White Circle Overlay */}
           <div
             className="absolute bg-white rounded-full flex flex-col items-center justify-center"
             style={{
               width: "470px",
               height: "470px",
-              top: "50%", // Center vertically
-              left: "50%", // Center horizontally
-              transform: "translate(-50%, -50%)", // Adjust for centering
-              zIndex: 10, // Ensure it's above the image
-              backgroundColor: "rgba(255, 255, 255, 0.5)", // Semi-transparent white
-              padding: "20px", // Add padding for content
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 10,
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              padding: "20px",
             }}
           >
             {/* Logo */}
             <img
-              src="/assets/logo-2b.png" // Replace with your logo path
+              src="/assets/logo-2b.png"
               alt="Logo"
-              className="mb-4" // Space between logo and text
-              style={{ width: "200px", height: "auto" }} // Adjust logo size as needed
+              className="mb-4"
+              style={{ width: "200px", height: "auto" }}
             />
-            {/* Text */}
-            <h2 className="text-center text-3xl  font-inten">
+            <h2 className="text-center text-3xl font-inten">
               The Construction and Landscaping Company
             </h2>
           </div>
@@ -70,9 +86,8 @@ function Signup() {
 
         {/* Right Side: Change Password Form */}
         <div className="md:w-1/2 w-full bg-[#EEF9F3] flex flex-col justify-center p-10 relative">
-          {/*  Text */}
           <div className="max-w-md mx-auto w-full text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-7 font-lato whitespace-nowrap">
+            <h1 className="text-3xl md:text-5xl font-bold mb-7 font-lato">
               SIGN UP
             </h1>
 
@@ -86,42 +101,46 @@ function Signup() {
             <form onSubmit={handleSubmit}>
               {/* Profile Photo Upload */}
               <span className="text-xl mb-4 font-inten">PROFILE PICTURE</span>
-
-              <div className="mb-4 mt-4 flex flex-col items-center">
-
-                <label
+              <div className="mb-4 mt-4 flex-col items-center">
+                <label 
                   htmlFor="profilePhoto"
                   className="relative flex items-center justify-center mb-2"
                 >
                   <input
                     type="file"
                     id="profilePhoto"
-                    accept="image/*" // Accepts only image files
-                    className="absolute inset-0 cursor-pointer opacity-0" // Hide the default input
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        console.log("File selected:", file); // For debugging, remove in production
-                      }
-                    }}
+                    accept="image/*"
+                    className="absolute inset-0 cursor-pointer opacity-0"
+                    onChange={handleProfilePhotoChange}
                   />
-                  <div className="flex items-center justify-center w-44 h-44 border-2 border-dashed border-green-500 bg-gray-200 rounded-full relative">
-                    <img
-                      src="/assets/clarity_user-line-p.png" // Placeholder for profile picture icon
-                      alt="Profile"
-                      className="w-28 h-28 absolute"
-                    />
-                    <span className="bg-green-400 text-white text-3xl absolute bottom-2 right-2 w-7 h-7 flex items-center">
-                      +
-                    </span>
+                  <div className="flex items-center justify-center w-44 h-44 bg-gray-200 rounded-full relative">
+                    {profilePhoto ? (
+                      <img
+                        src={profilePhoto}
+                        alt="Profile"
+                        className="w-28 h-28 rounded-full absolute"
+                      />
+                    ) : (
+                      <img
+                        src="/assets/clarity_user-line-p.png"
+                        alt="Profile"
+                        className="w-28 h-28 absolute"
+                      />
+                    )}
+                    <div className="absolute bottom-2 right-2 flex items-center justify-center rounded-md border-[1px] border-dashed border-[#121C17] w-10 h-10">
+                      <span className="bg-green-400 rounded-md flex items-center justify-center text-white text-3xl w-7 h-7">
+                        +
+                      </span>
+                    </div>
                   </div>
                 </label>
               </div>
-              {/* //// */}
+
+              {/* Email Address */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="currentPassword"
+                  htmlFor="email"
                 >
                   EMAIL ADDRESS
                 </label>
@@ -129,26 +148,27 @@ function Signup() {
                   <span className="absolute left-3 top-3">
                     <img
                       src="/assets/ic_outline-email.png"
-                      alt="Key Icon"
+                      alt="Email Icon"
                       className="w-5 h-5"
                     />
                   </span>
                   <input
                     type="email"
-                    id="currentPassword"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                     placeholder="Example@gmail.com"
                   />
                 </div>
               </div>
-              {/* phone */}
+
+              {/* Phone Number */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="currentPassword"
+                  htmlFor="phone"
                 >
                   PHONE NUMBER
                 </label>
@@ -156,26 +176,27 @@ function Signup() {
                   <span className="absolute left-3 top-3">
                     <img
                       src="/assets/ph_phone.png"
-                      alt="Key Icon"
+                      alt="Phone Icon"
                       className="w-5 h-5"
                     />
                   </span>
                   <input
-                    type="email"
-                    id="currentPassword"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    type="tel" // Change to 'tel' for phone number
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="Example@gmail.com"
+                    placeholder="123-456-7890"
                   />
                 </div>
               </div>
-              {/* user name */}
+
+              {/* Username */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="currentPassword"
+                  htmlFor="username"
                 >
                   USERNAME
                 </label>
@@ -183,22 +204,23 @@ function Signup() {
                   <span className="absolute left-3 top-3">
                     <img
                       src="/assets/clarity_user-line.png"
-                      alt="Key Icon"
+                      alt="User Icon"
                       className="w-5 h-5"
                     />
                   </span>
                   <input
-                    type="email"
-                    id="currentPassword"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    type="text" // Change to 'text' for username
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="Example@gmail.com"
+                    placeholder="@USER_NAME"
                   />
                 </div>
               </div>
-              {/* password */}
+
+              {/* Password */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
@@ -210,7 +232,7 @@ function Signup() {
                   <span className="absolute left-3 top-3">
                     <img
                       src="/assets/carbon_password.png"
-                      alt="Key Icon"
+                      alt="Password Icon"
                       className="w-5 h-5"
                     />
                   </span>
@@ -225,6 +247,8 @@ function Signup() {
                   />
                 </div>
               </div>
+
+              {/* Confirm Password */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
@@ -236,7 +260,7 @@ function Signup() {
                   <span className="absolute left-3 top-3">
                     <img
                       src="/assets/carbon_password.png"
-                      alt="Key Icon"
+                      alt="Password Icon"
                       className="w-5 h-5"
                     />
                   </span>
@@ -250,52 +274,57 @@ function Signup() {
                     placeholder="*****************"
                   />
                 </div>
-                {/* country - city */}
-                <div className="mt-4 mb-4 flex flex-col md:flex-row justify-between">
-                  {/* Country Dropdown */}
-                  <div className="md:w-1/2 mr-2">
-                    <label
-                      className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                      htmlFor="country"
-                    >
-                      COUNTRY
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="country"
-                        required
-                        className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                      >
-                        <option value="">Select a country</option>
-                        <option value="usa">United States</option>
-                        <option value="canada">Canada</option>
-                        <option value="uk">United Kingdom</option>
-                        {/* Add more countries as needed */}
-                      </select>
-                    </div>
-                  </div>
+              </div>
 
-                  {/* City Dropdown */}
-                  <div className="md:w-1/2 ml-2">
-                    <label
-                      className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                      htmlFor="city"
+              {/* Country and City Dropdowns */}
+              <div className="mt-4 mb-4 flex flex-col md:flex-row justify-between">
+                {/* Country Dropdown */}
+                <div className="md:w-1/2 w-full">
+                  <label
+                    className="block text-sm font-medium font-inter text-[#121C17] text-left"
+                    htmlFor="country"
+                  >
+                    COUNTRY
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="country"
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
+                      required
+                      className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                     >
-                      CITY
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="city"
-                        required
-                        className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                      >
-                        <option value="">Select a city</option>
-                        <option value="newyork">New York</option>
-                        <option value="toronto">Toronto</option>
-                        <option value="london">London</option>
-                        {/* Add more cities as needed */}
-                      </select>
-                    </div>
+                      <option value="">Select a country</option>
+                      <option value="usa">United States</option>
+                      <option value="canada">Canada</option>
+                      <option value="uk">United Kingdom</option>
+                      {/* Add more countries as needed */}
+                    </select>
+                  </div>
+                </div>
+
+                {/* City Dropdown */}
+                <div className="md:w-1/2 w-full md:mt-0 mt-4 md:ml-4 ">
+                  <label
+                    className="block text-sm font-medium font-inter text-[#121C17] text-left"
+                    htmlFor="city"
+                  >
+                    CITY
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="city"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      required
+                      className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
+                    >
+                      <option value="">Select a city</option>
+                      <option value="newyork">New York</option>
+                      <option value="toronto">Toronto</option>
+                      <option value="london">London</option>
+                      {/* Add more cities as needed */}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -307,6 +336,12 @@ function Signup() {
                 SEND CODE
               </button>
             </form>
+            <p className="mt-4 font-inten text-sm font-normal">
+              HAVE AN ACCOUNT?
+              <a href="#" className="text-custom-teal ml-8 hover:underline">
+                LOGIN
+              </a>
+            </p>
           </div>
         </div>
       </div>
