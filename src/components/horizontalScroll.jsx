@@ -16,9 +16,9 @@ const HorizontalScrollSection = ({ titleId, items }) => {
       case "Kitchens":
         return "Kitchens";
       case "shrubs":
-        return "shrubs";
+        return "Shrubs";
       case "pavements":
-        return "pavements";
+        return "Pavements";
       // Add more cases as needed
       default:
         return "default"; // Fallback title
@@ -30,10 +30,7 @@ const HorizontalScrollSection = ({ titleId, items }) => {
       <div className="flex flex-row justify-between mr-10 my-8">
         <div className="flex flex-row">
           <div className="h-[33px] w-[54px] bg-custom-dark mr-4"></div>
-          <h2
-            className="text-5xl font-lato text-center mb-4 uppercase"
-            id={titleId}
-          >
+          <h2 className="text-5xl font-lato text-center mb-4" id={titleId}>
             {getTitleById(titleId)}
           </h2>
         </div>
@@ -54,7 +51,11 @@ const HorizontalScrollSection = ({ titleId, items }) => {
       <div className="overflow-x-auto whitespace-nowrap ml-10 scrollbar-hidden">
         <div className="flex space-x-14">
           {items.map((item) => (
-            <div key={item.id} className="min-w-[471px] relative">
+            <Link
+              to={`/product/${item.id}`}
+              key={item.id}
+              className="min-w-[471px] relative"
+            >
               <img
                 src={item.imgSrc}
                 alt={item.title}
@@ -63,7 +64,7 @@ const HorizontalScrollSection = ({ titleId, items }) => {
               <h3 className="w-[300px] absolute bottom-2 left-2 font-inten font-bold text-3xl text-[#121C17] p-2 whitespace-normal break-words">
                 {item.title}
               </h3>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

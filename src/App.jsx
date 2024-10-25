@@ -8,6 +8,7 @@ import ProfilePage from "./pages/profilepage"; // Adjust the path as needed
 import Verifyaccount from "./pages/verifyaccount";
 import LandingPage from "./pages/landingpage";
 import "./fonts.css";
+import ProductDetails from "./pages/productDetails";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/verifyAccount" element={<Verifyaccount />} />
         <Route path="/home" element={<LandingPage />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </Router>
   );
