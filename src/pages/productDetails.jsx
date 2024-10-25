@@ -1,17 +1,24 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const ProductDetail = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <div className="w-full pt-20  bg-white shadow-lg ">
+      <Navbar />
+      <div className="w-full">
+        <img
+          src="/assets/product-details/product-d-2.png" // Replace with your image path
+          alt="Kronostep Z209 SPC Flooring"
+          className="w-full h-auto "
+        />
+      </div>
+      <div className="bg-custom-teal content-center pl-96 p-10 h-24">
+        <p className="uppercase text-custom-light text-3xl md:text-4xl text-center mb-2 font-lato ">
+          Product code: 11173102{" "}
+        </p>
+      </div>
       {/* Product Image Section */}
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2">
-          <img
-            src="path/to/your/image.jpg" // Replace with your image path
-            alt="Kronostep Z209 SPC Flooring"
-            className="w-full h-auto rounded-lg"
-          />
-        </div>
         <div className="md:w-1/2 md:pl-6">
           <h2 className="text-xl font-bold mb-2">PRODUCT CODE: 11173102</h2>
           <h3 className="text-lg font-semibold mb-4">

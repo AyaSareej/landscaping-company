@@ -1,5 +1,5 @@
-// Profilepage.js
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 import Navbar from "../components/Navbar"; // Adjust the import path as necessary
 
 const Profilepage = () => {
@@ -7,7 +7,7 @@ const Profilepage = () => {
     <div className="bg-[#EEF9F3] min-h-screen">
       <Navbar />
       {/* Main Section */}
-      <main className="relative bg-[#EEF9F3] w-full">
+      <main className="relative bg-[#EEF9F3] w-full pt-20">
         {/* Profile Picture */}
         <div className="absolute left-10 top-96 mb-4 md:mb-0 z-40">
           <img
@@ -43,13 +43,15 @@ const Profilepage = () => {
               <p className="font-inten md:text-2xl text-md text-white uppercase">james96@gmail.com</p>
               <p className="font-inten md:text-2xl text-md text-white uppercase">+1 202 555 1234</p>
             </div>
-            <button
-              type="submit"
-              className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
-            >
-              <img src="/assets/logout.png" alt="Logout Icon" className="w-6 h-6 mr-2" />
-              Logout
-            </button>
+            <Link to="/"> 
+              <button
+                type="submit"
+                className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
+              >
+                <img src="/assets/logout.png" alt="Logout Icon" className="w-6 h-6 mr-2" />
+                Logout
+              </button>
+            </Link>
           </div>
         </div>
       </main>

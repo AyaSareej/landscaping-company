@@ -12,7 +12,7 @@ const images = [
 
 const Login = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,9 +23,7 @@ const Login = () => {
   }, []);
 
   const handleLogin = (e) => {
-    e.preventDefault(); // Prevent the default form submission
-    // Here you can add your authentication logic
-    // If successful, navigate to the profile page
+    e.preventDefault();
     navigate("/profile");
   };
 
@@ -118,7 +116,7 @@ const Login = () => {
                 </div>
               </div>
               <button
-                type="submit" 
+                type="submit"
                 className="w-44 h-12 border border-[#121C17] bg-[#2BE784] text-[#121C17] font-bold font-inten py-1 mt-2 rounded-md shadow-md hover:opacity-90 transition duration-200"
               >
                 LOGIN
@@ -139,30 +137,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// 
-// 
-/**
- * 
- * 
- * 
-      <div className="flex justify-center top-20 ">
-        <div className="absolute translate-y-3/4  -translate-x-28">
-          <img src="/assets/Ellipse 7.png" alt="Logo" className="w-32" />
-        </div>
-
-        <div className="absolute translate-x-28">
-          <img src="/assets/Ellipse 8.png" alt="Logo" className="w-40" />
-        </div>
-        <div className="absolute translate-y-10  ">
-          <img
-            src="/assets/morphis-mail-with-a-frosted-glass-effect-1 1.png"
-            alt="Logo"
-            className="w-48"
-          />
-        </div>
-      </div>
- * 
- * 
- * 
- */
