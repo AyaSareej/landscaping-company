@@ -24,40 +24,42 @@ const Verifyaccount = () => {
   };
 
   return (
-    <div className="relative flex items-center flex-col  h-screen bg-[#EEF9F3]">
+    <div className="relative flex flex-col items-center h-screen bg-[#EEF9F3]">
       {/* Green Top Towel */}
-      <div className="w-full h-16 bg-gradient-to-r from-custom-dark-teal to-custom-teal"></div>
-      {/* icons */}
-      <div className="flex justify-center top-20 ">
-        <div className="absolute translate-y-3/4  -translate-x-28">
-          <img src="/assets/Ellipse 7.png" alt="Logo" className="w-32" />
-        </div>
-
-        <div className="absolute translate-x-28">
-          <img src="/assets/Ellipse 8.png" alt="Logo" className="w-40" />
-        </div>
-        <div className="absolute translate-y-10  ">
-          <img
-            src="/assets/morphis-mail-with-a-frosted-glass-effect-1 1.png"
-            alt="Logo"
-            className="w-48"
-          />
-        </div>
+      <div className="w-full h-16 bg-gradient-to-r from-custom-dark-teal to-custom-teal "></div>
+      
+      {/* Icons Section */}
+      <div className="relative flex justify-center mt-10 mb-20">
+        <img
+          src="/assets/Ellipse 7.png"
+          alt="Icon 1"
+          className="w-32 h-32 relative transform translate-y-20 -translate-x-10"
+        />
+        <img
+          src="/assets/Ellipse 8.png"
+          alt="Icon 2"
+          className="w-40 relative transform translate-x-10"
+        />
+        <img
+          src="/assets/morphis-mail-with-a-frosted-glass-effect-1 1.png"
+          alt="Mail Icon"
+          className="w-48 absolute top-10"
+        />
       </div>
-      {/* paragraphs */}
-      <div>
-        <p className="font-inten font-bold text-xl md:text-2xl text-center mb-4">
+      
+      {/* Paragraphs Section */}
+      <div className="text-center mb-6">
+        <p className="font-inten font-bold text-xl md:text-2xl">
           PLEASE VERIFY YOUR ACCOUNT
         </p>
-      </div>
-      <div>
-        <p className="font-inten md:text-xl text-md text-center uppercase">
-          enter the 6 digit code (contains letters and numbers) that we sent to
-          your email address to verify your new account
+        <p className="font-inten md:text-xl text-md uppercase mt-2">
+          Enter the 6-digit code (contains letters and numbers) that we sent to
+          your email address to verify your new account.
         </p>
       </div>
-      {/* code fields */}
-      <div className=" flex justify-center items-center space-x-2 rtl:space-x-reverse">
+      
+      {/* Code Input Fields */}
+      <div className="flex justify-center items-center space-x-2 rtl:space-x-reverse mb-4">
         {code.map((num, index) => (
           <input
             key={index}
@@ -67,26 +69,28 @@ const Verifyaccount = () => {
             value={num}
             onChange={(e) => handleChange(e, index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className="mt-5 mb-5 w-14 h-[68px] text-center text-4xl rounded-3xl font-noor-regular leading-10 bg-black opacity-15 hover:opacity-10  focus:ring focus:border-custom-green-dark focus:border-opacity-100 focus:opacity-10 "
+            className="w-14 h-[68px] text-center text-4xl rounded-3xl bg-black bg-opacity-10 hover:bg-opacity-15  focus:border-custom-green-dark focus:border-opacity-100"
           />
         ))}
-      </div>{" "}
-      {/*  */}
-      <p className="font-inten md:text-xl text-md text-center uppercase">
+      </div>
+
+      {/* Countdown and Resend Code */}
+      <p className="font-inten md:text-xl text-md text-center uppercase mb-2">
         valid for 3 minutes
       </p>
       <a
         href="#"
-        className="mt-2 mb-2 uppercase font-inten text-sm text-custom-teal hover:underline"
+        className="mb-6 uppercase font-inten text-sm text-custom-teal hover:underline"
       >
-        resend code
+        Resend Code
       </a>
-      {/* button */}
+      
+      {/* Submit Button */}
       <button
         type="submit"
-        className="uppercase w-60 md:w-64 h-12 border border-[#121C17] bg-[#2BE784] text-[#121C17] font-medium text-md md:text-lg font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
+        className="uppercase w-60 md:w-64 h-12 border border-[#121C17] bg-[#2BE784] text-[#121C17] font-medium text-md md:text-lg font-inter py-1 rounded-lg shadow-md hover:opacity-90 transition duration-200"
       >
-        verify and continue
+        Verify and Continue
       </button>
     </div>
   );

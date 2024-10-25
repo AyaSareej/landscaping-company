@@ -1,6 +1,9 @@
+// Signup.jsx
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
@@ -30,6 +33,9 @@ function Signup() {
 
     // Handle signup logic (e.g., API call)
     setSuccessMessage("Signup successful!");
+
+    // Navigate to verify account page after successful signup
+    navigate("/verifyAccount");
   };
 
   const handleProfilePhotoChange = (e) => {
@@ -84,7 +90,7 @@ function Signup() {
           </div>
         </div>
 
-        {/* Right Side: Change Password Form */}
+        {/* Right Side: Signup Form */}
         <div className="md:w-1/2 w-full bg-[#EEF9F3] flex flex-col justify-center p-10 relative">
           <div className="max-w-md mx-auto w-full text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-7 font-lato">
@@ -102,7 +108,7 @@ function Signup() {
               {/* Profile Photo Upload */}
               <span className="text-xl mb-4 font-inten">PROFILE PICTURE</span>
               <div className="mb-4 mt-4 flex-col items-center">
-                <label 
+                <label
                   htmlFor="profilePhoto"
                   className="relative flex items-center justify-center mb-2"
                 >
@@ -181,7 +187,7 @@ function Signup() {
                     />
                   </span>
                   <input
-                    type="tel" // Change to 'tel' for phone number
+                    type="tel"
                     id="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -209,7 +215,7 @@ function Signup() {
                     />
                   </span>
                   <input
-                    type="text" // Change to 'text' for username
+                    type="text"
                     id="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -298,7 +304,6 @@ function Signup() {
                       <option value="usa">United States</option>
                       <option value="canada">Canada</option>
                       <option value="uk">United Kingdom</option>
-                      {/* Add more countries as needed */}
                     </select>
                   </div>
                 </div>
@@ -323,7 +328,6 @@ function Signup() {
                       <option value="newyork">New York</option>
                       <option value="toronto">Toronto</option>
                       <option value="london">London</option>
-                      {/* Add more cities as needed */}
                     </select>
                   </div>
                 </div>
@@ -336,11 +340,14 @@ function Signup() {
                 SEND CODE
               </button>
             </form>
-            <p className="mt-4 font-inten text-sm font-normal">
+            <p className="mt-4 font-bold font-inten text-sm ">
               HAVE AN ACCOUNT?
-              <a href="#" className="text-custom-teal ml-8 hover:underline">
+              <Link
+                to="/"
+                className="text-custom-teal font-bold font-inten ml-8 hover:underline"
+              >
                 LOGIN
-              </a>
+              </Link>
             </p>
           </div>
         </div>
