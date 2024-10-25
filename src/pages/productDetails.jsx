@@ -1,22 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const ProductDetail = () => {
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const images = [
+    "/assets/product-details/product-d-2.png",
+    "/assets/product-details/image2.png",
+    "/assets/product-details/image3.png",
+    "/assets/product-details/image4.png",
+  ];
+
   return (
-    <div className="w-full pt-20  bg-white shadow-lg ">
+    <div className="w-full pt-20 bg-white shadow-lg relative">
       <Navbar />
+
+      {/* Floating Image Gallery */}
+      <div className="fixed left-8 top-32 w-[400px] h-[400px] bg-white shadow-xl z-50">
+        {/* Main large image */}
+        <div className="w-full h-[300px] border-b">
+          <img
+            src={images[selectedImage]}
+            alt="Main product"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Thumbnail images */}
+        <div className="flex p-2 gap-2 overflow-x-auto">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`min-w-[80px] h-[80px] cursor-pointer border-2 
+                ${
+                  selectedImage === index
+                    ? "border-blue-500"
+                    : "border-gray-200"
+                }`}
+              onClick={() => setSelectedImage(index)}
+            >
+              <img
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/*  */}
       <div className="w-full">
         <img
           src="/assets/product-details/product-d-2.png" // Replace with your image path
           alt="Kronostep Z209 SPC Flooring"
-          className="w-full h-auto "
+          className="w-full h-auto"
         />
       </div>
       <div className="bg-custom-teal content-center pl-96 p-10 h-24">
-        <p className="uppercase text-custom-light text-3xl md:text-4xl text-center mb-2 font-lato ">
-          Product code: 11173102{" "}
+        <p className="uppercase text-custom-light text-3xl md:text-4xl text-center mb-2 font-lato">
+          Product code: 11173102
         </p>
       </div>
+
       {/* Product Image Section */}
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/2 md:pl-6">
@@ -69,6 +114,8 @@ const ProductDetail = () => {
           <li>FAST ASSEMBLY</li>
         </ul>
       </div>
+
+   
     </div>
   );
 };
