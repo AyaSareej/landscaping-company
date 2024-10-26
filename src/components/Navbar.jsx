@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu Toggle */}
       <div
-        className="font-inten font-bold flex items-center gap-3 text-2xl text-white cursor-pointer md:hidden"
+        className="font-inten font-bold flex items-center gap-3 text-2xl text-white cursor-pointer"
         onClick={toggleSidebar}
       >
         <img src="/assets/bitcoin-icons_menu-filled.png" alt="Menu Icon" />
@@ -70,7 +70,7 @@ const Navbar = () => {
             <a href="#contact" className="py-2">Railings</a>
             <a href="#contact" className="py-2">Woodworking</a>
             <a href="#contact" className="py-2">Showroom</a>
-            <a href="#contact" className="py-2">Profile</a>
+            <Link to="/profile" className="py-2">Profile</Link>
             <a href="#contact" className="py-2">Contact Us</a>
           </nav>
         </div>
