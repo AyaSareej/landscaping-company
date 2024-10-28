@@ -6,9 +6,9 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const images = [
-    "/assets/product-details/product-d-1.png",
-    "/assets/product-details/product-d-3.png",
-    "/assets/product-details/Rectangle 48.png",
+    "/landscaping-company/assets/product-details/product-d-1.png",
+    "/landscaping-company/assets/product-details/product-d-3.png",
+    "/landscaping-company/assets/product-details/Rectangle 48.png",
   ];
 
   return (
@@ -30,7 +30,7 @@ const ProductDetail = () => {
               className="absolute bottom-60 right-5 py-1 mt-2  hover:opacity-90 transition duration-200"
             >
               <img
-                src="/assets/icons/fav.png"
+                src="/landscaping-company/assets/icons/fav.png"
                 alt="fav Icon"
                 className="w-16 h-16"
               />
@@ -63,7 +63,7 @@ const ProductDetail = () => {
       {/*  */}
       <div className="w-full">
         <img
-          src="/assets/product-details/product-d-2.png"
+          src="/landscaping-company/assets/product-details/product-d-2.png"
           alt="Kronostep Z209 SPC Flooring"
           className="w-full h-auto"
         />
@@ -83,12 +83,16 @@ const ProductDetail = () => {
           </h3>
           <div className="flex mt-10 md:pl-20 gap-5 flex-col mb-4 uppercase font-inten text-xl md:text-[28px]">
             <p className="flex flex-row gap-6">
-              <img src="/assets/icons/Vector.png" alt="" className="h-8 w-8" />
+              <img
+                src="/landscaping-company/assets/icons/Vector.png"
+                alt=""
+                className="h-8 w-8"
+              />
               <strong>PRODUCT TYPE:</strong> SPC FLOORING
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/assets/icons/Vector (1).png"
+                src="/landscaping-company/assets/icons/Vector (1).png"
                 alt=""
                 className="h-8 w-6"
               />{" "}
@@ -96,7 +100,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/assets/icons/Vector (4).png"
+                src="/landscaping-company/assets/icons/Vector (4).png"
                 alt=""
                 className="h-8 w-8"
               />{" "}
@@ -104,7 +108,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/assets/icons/Vector (3).png"
+                src="/landscaping-company/assets/icons/Vector (3).png"
                 alt=""
                 className="h-8 w-6"
               />{" "}

@@ -36,7 +36,7 @@ const ChangePassword = () => {
         {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src="/assets/Rectangle 11 (5).png"
+            src="/landscaping-company/assets/Rectangle%2011%20(5).png"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -56,7 +56,7 @@ const ChangePassword = () => {
           >
             {/* Logo */}
             <img
-              src="/assets/logo-2b.png" // Replace with your logo path
+              src="/landscaping-company/assets/logo-2b.png" // Replace with your logo path
               alt="Logo"
               className="mb-4" // Space between logo and text
               style={{ width: "200px", height: "auto" }} // Adjust logo size as needed
@@ -94,8 +94,8 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/ic_outline-email.png"
-                      alt="Key Icon"
+                      src="/landscaping-company/assets/ic_outline-email.png"
+                      alt="Email Icon"
                       className="w-5 h-5"
                     />
                   </span>
@@ -120,7 +120,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/carbon_password.png"
+                      src="/landscaping-company/assets/carbon_password.png"
                       alt="Key Icon"
                       className="w-5 h-5"
                     />
@@ -146,7 +146,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/carbon_password.png"
+                      src="/landscaping-company/assets/carbon_password.png"
                       alt="Key Icon"
                       className="w-5 h-5"
                     />

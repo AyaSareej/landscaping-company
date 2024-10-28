@@ -11,7 +11,7 @@ const Profilepage = () => {
         {/* Profile Picture */}
         <div className="absolute left-10 top-96 mb-4 md:mb-0 z-40">
           <img
-            src="/assets/profile-ing-ex.jpg"
+            src="/landscaping-company/assets/profile-ing-ex.jpg"
             alt="Profile"
             className="w-56 h-56 rounded-full border-8 border-[#14B05D] shadow-lg"
           />
@@ -20,7 +20,7 @@ const Profilepage = () => {
           </span>
         </div>
         <div>
-          <img src="/assets/Rectangle 30.png" alt="Background" className="w-full" />
+          <img src="/landscaping-company/assets/Rectangle 30.png" alt="Background" className="w-full" />
         </div>
 
         {/* Profile Information Section */}
@@ -33,7 +33,7 @@ const Profilepage = () => {
               <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">PHONE</p>
             </div>
             <div className="self-end absolute bottom-0 left-2">
-              <img src="/assets/pale-85 1.png" alt="" />
+              <img src="/landscaping-company/assets/pale-85 1.png" alt="" />
             </div>
           </div>
           <div className="bg-[#031C1D] md:w-2/3 h-[420px] flex justify-start items-center">
@@ -48,7 +48,7 @@ const Profilepage = () => {
                 type="submit"
                 className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
               >
-                <img src="/assets/logout.png" alt="Logout Icon" className="w-6 h-6 mr-2" />
+                <img src="/landscaping-company/assets/logout.png" alt="Logout Icon" className="w-6 h-6 mr-2" />
                 Logout
               </button>
             </Link>

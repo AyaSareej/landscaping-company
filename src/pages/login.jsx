@@ -3,16 +3,16 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const images = [
-  "/assets/Rectangle 11.png",
-  "/assets/Rectangle 11 (4).png",
-  "/assets/Rectangle 11 (2).png",
-  "/assets/Rectangle 11 (3).png",
-  "/assets/Rectangle 11 (1).png",
+  "/landscaping-company/assets/Rectangle%2011.png",
+  "/landscaping-company/assets/Rectangle%2011%20(4).png",
+  "/landscaping-company/assets/Rectangle%2011%20(2).png",
+  "/landscaping-company/assets/Rectangle%2011%20(3).png",
+  "/landscaping-company/assets/Rectangle%2011.png",
 ];
 
 const Login = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +40,11 @@ const Login = () => {
               REINVENT YOUR SPACE WITH US
             </h2>
             <div className="flex justify-center mb-8">
-              <img src="/assets/logo.png" alt="Logo" className="w-24" />
+              <img
+                src="/landscaping-company/assets/logo.png"
+                alt="Logo"
+                className="w-24"
+              />
             </div>
             <form onSubmit={handleLogin}>
               {" "}
@@ -55,7 +59,7 @@ const Login = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/ic_outline-email.png"
+                      src="/landscaping-company/assets/ic_outline-email.png"
                       alt="Key Icon"
                       className="w-5 h-5"
                     />
@@ -79,7 +83,7 @@ const Login = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/carbon_password.png"
+                      src="/landscaping-company/assets/carbon_password.png"
                       alt="Key Icon"
                       className="w-5 h-5"
                     />

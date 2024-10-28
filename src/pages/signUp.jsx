@@ -59,7 +59,7 @@ function Signup() {
         {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src="/assets/Rectangle 11 (6) -sign.png"
+            src="/landscaping-company/assets/Rectangle%2011%20(6)%20-sign.png"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -79,7 +79,7 @@ function Signup() {
           >
             {/* Logo */}
             <img
-              src="/assets/logo-2b.png"
+              src="/landscaping-company/assets/logo-2b.png"
               alt="Logo"
               className="mb-4"
               style={{ width: "200px", height: "auto" }}
@@ -128,7 +128,7 @@ function Signup() {
                       />
                     ) : (
                       <img
-                        src="/assets/clarity_user-line-p.png"
+                        src="/landscaping-company/assets/clarity_user-line-p.png"
                         alt="Profile"
                         className="w-28 h-28 absolute"
                       />
@@ -153,7 +153,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/ic_outline-email.png"
+                      src="/landscaping-company/assets/ic_outline-email.png"
                       alt="Email Icon"
                       className="w-5 h-5"
                     />
@@ -181,7 +181,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/ph_phone.png"
+                      src="/landscaping-company/assets/ph_phone.png"
                       alt="Phone Icon"
                       className="w-5 h-5"
                     />
@@ -209,7 +209,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/clarity_user-line.png"
+                      src="/landscaping-company/assets/clarity_user-line.png"
                       alt="User Icon"
                       className="w-5 h-5"
                     />
@@ -237,7 +237,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/carbon_password.png"
+                      src="/landscaping-company/assets/carbon_password.png"
                       alt="Password Icon"
                       className="w-5 h-5"
                     />
@@ -265,7 +265,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/assets/carbon_password.png"
+                      src="/landscaping-company/assets/carbon_password.png"
                       alt="Password Icon"
                       className="w-5 h-5"
                     />
