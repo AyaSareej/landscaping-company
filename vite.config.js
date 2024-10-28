@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "/landscaping-company/",
+  base: command === "build" ? "/landscaping-company/" : "/",
   plugins: [react()],
   build: {
     rollupOptions: {
