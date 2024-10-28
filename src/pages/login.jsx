@@ -2,12 +2,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const basePath =
+  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+
 const images = [
-  "/landscaping-company/assets/Rectangle%2011.png",
-  "/landscaping-company/assets/Rectangle%2011%20(4).png",
-  "/landscaping-company/assets/Rectangle%2011%20(2).png",
-  "/landscaping-company/assets/Rectangle%2011%20(3).png",
-  "/landscaping-company/assets/Rectangle%2011.png",
+  `${basePath}/assets/Rectangle%2011.png`,
+  `${basePath}/assets/Rectangle%2011%20(4).png`,
+  `${basePath}/assets/Rectangle%2011%20(2).png`,
+  `${basePath}/assets/Rectangle%2011%20(3).png`,
+  `${basePath}/assets/Rectangle%2011.png`,
 ];
 
 const Login = () => {
