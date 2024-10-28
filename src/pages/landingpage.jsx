@@ -3,32 +3,35 @@ import HorizontalScrollSection from "../components/horizontalScroll";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
+const basePath =
+  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+
 const LandingPage = () => {
   const floorItems = [
     {
       id: 1,
       title: "light shade butterscotch oak 1",
-      imgSrc: "/landscaping-company/assets/landingpage/floors/bitcoin-icons_menu-filled.png",
+      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
     },
     {
       id: 2,
       title: "shade butterscotch 2",
-      imgSrc: "/landscaping-company/assets/landingpage/floors/bitcoin-icons_menu-filled.png",
+      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
     },
     {
       id: 3,
       title: "shade butterscotch 3",
-      imgSrc: "/landscaping-company/assets/landingpage/floors/bitcoin-icons_menu-filled.png",
+      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
     },
     {
       id: 4,
       title: "shade butterscotch 4",
-      imgSrc: "/landscaping-company/assets/landingpage/floors/bitcoin-icons_menu-filled.png",
+      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
     },
     {
       id: 5,
       title: "shade butterscotch 5",
-      imgSrc: "/landscaping-company/assets/landingpage/floors/bitcoin-icons_menu-filled.png",
+      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
     },
   ];
 
@@ -36,12 +39,12 @@ const LandingPage = () => {
     {
       id: 1,
       title: "Brick Wall 1",
-      imgSrc: "/landscaping-company/assets/landingpage/walls/Rectangle 39.png",
+      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
     },
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: "/landscaping-company/assets/landingpage/walls/Rectangle 39.png",
+      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
     },
     // Add more wall items as needed
   ];
@@ -50,84 +53,88 @@ const LandingPage = () => {
     {
       id: 1,
       title: "Brick Wall 1",
-      imgSrc: "/landscaping-company/assets/landingpage/skins/skin.png",
+      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
     },
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: "/landscaping-company/assets/landingpage/skins/skin.png",
+      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
     },
     // Add more wall items as needed
   ];
+
   const facItems = [
     {
       id: 1,
       title: "Brick Wall 1",
-      imgSrc: "/landscaping-company/assets/landingpage/faucets/faucet-1.png",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
     },
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: "/landscaping-company/assets/landingpage/faucets/faucet-1.png",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
     },
     // Add more wall items as needed
   ];
+
   const kitchenItems = [
     {
       id: 1,
       title: "",
-      imgSrc: "/landscaping-company/assets/landingpage/kitchen/kitchen 1.png",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
     },
     {
       id: 2,
       title: "",
-      imgSrc: "/landscaping-company/assets/landingpage/kitchen/kitchen 1.png",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
     },
     // Add more wall items as needed
   ];
+
   const shrubItems = [
     {
       id: 1,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png`,
     },
     {
       id: 2,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 40.png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 40.png`,
     },
     {
       id: 3,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png`,
     },
     {
       id: 4,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png`,
     },
     // Add more wall items as needed
   ];
+
   const pavementItems = [
     {
       id: 1,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 39 (1).png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 39 (1).png`,
     },
     {
       id: 2,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 40 (1).png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 40 (1).png`,
     },
     {
       id: 3,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 41.png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 41.png`,
     },
     {
       id: 4,
       title: "",
-      imgSrc: "/landscaping-company/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 40 (1).png",
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 40 (1).png`,
     },
     // Add more wall items as needed
   ];
@@ -162,7 +169,7 @@ const LandingPage = () => {
           <div className="relative mt-2 md:w-96 w-52 shadow-md">
             <span className="absolute left-3 top-3">
               <img
-                src="/landscaping-company/assets/Vector.png"
+                src={`${basePath}/assets/Vector.png`}
                 alt="Search Icon"
                 className="w-5 h-5"
               />
@@ -289,7 +296,7 @@ const LandingPage = () => {
           </div>
           <div className="h-[643px] w-[1669px] relative flex justify-center items-center flex-col">
             <img
-              src="/landscaping-company/assets/Rectangle 52.png"
+              src={`${basePath}/assets/Rectangle 52.png`}
               className="absolute inset-0 w-full h-full object-cover"
               alt="Background"
             />
@@ -316,7 +323,7 @@ const LandingPage = () => {
                     <button className="bg-[#074143] text-custom-light font-inten font-medium md:text-[28px] py-2 px-6 rounded hover:bg-green-600 transition duration-200 flex items-center justify-center space-x-4">
                       <span className="uppercase">View All</span>
                       <img
-                        src="/landscaping-company/assets/icons/Vector (2).png"
+                        src={`${basePath}/assets/icons/Vector (2).png`}
                         alt="View All Icon"
                         className="w-7 h-7"
                       />
@@ -333,7 +340,9 @@ const LandingPage = () => {
                     className="w-full h-[297px] bg-gray-200" // Set width to full for responsiveness
                   >
                     <img
-                      src={`/landscaping-company/assets/landingpage/int ${index + 1}.png`} // Replace with your image path
+                      src={`${basePath}/assets/landingpage/int ${
+                        index + 1
+                      }.png`} // Replace with your image path
                       alt={`Image ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -354,7 +363,7 @@ const LandingPage = () => {
                     <button className="bg-[#074143] text-custom-light font-inten font-medium md:text-[28px] py-2 px-6 rounded hover:bg-green-600 transition duration-200 flex items-center justify-center space-x-4">
                       <span className="uppercase">View All</span>
                       <img
-                        src="/landscaping-company/assets/icons/Vector (2).png"
+                        src={`${basePath}/assets/icons/Vector (2).png`}
                         alt="View All Icon"
                         className="w-7 h-7"
                       />
@@ -371,7 +380,9 @@ const LandingPage = () => {
                     className="w-full h-[297px] bg-gray-200" // Set width to full for responsiveness
                   >
                     <img
-                      src={`/landscaping-company/assets/landingpage/int ${index + 1}.png`} // Replace with your image path
+                      src={`${basePath}/assets/landingpage/int ${
+                        index + 1
+                      }.png`} // Replace with your image path
                       alt={`Image ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -389,7 +400,7 @@ const LandingPage = () => {
             {/* Address Section */}
             <div className="flex flex-row items-center w-full md:w-[320px] text-center">
               <img
-                src="/landscaping-company/assets/icons/mdi_address-marker-outline.png"
+                src={`${basePath}/assets/icons/mdi_address-marker-outline.png`}
                 alt="Address Icon"
                 className="w-10 h-9 object-cover mr-2"
               />
@@ -401,7 +412,7 @@ const LandingPage = () => {
             {/* Phone Section */}
             <div className="flex flex-row items-center w-full md:w-[320px] text-center">
               <img
-                src="/landscaping-company/assets/icons/ic_outline-whatsapp.png"
+                src={`${basePath}/assets/icons/ic_outline-whatsapp.png`}
                 alt="WhatsApp Icon"
                 className="w-8 h-8 object-cover mr-2"
               />
@@ -413,7 +424,7 @@ const LandingPage = () => {
             {/* Email Section */}
             <div className="flex flex-row items-center w-full md:w-[320px] text-center">
               <img
-                src="/landscaping-company/assets/icons/ic_outline-email.png"
+                src={`${basePath}/assets/icons/ic_outline-email.png`}
                 alt="Email Icon"
                 className="w-8 h-8 object-cover mr-2"
               />
@@ -429,7 +440,11 @@ const LandingPage = () => {
           <div className="flex flex-col md:flex-row justify-between mt-4">
             {/* Company Name */}
             <div className="flex flex-row gap-2 items-center">
-              <img src="/landscaping-company/assets/logo.png" alt="Logo" className="w-16" />
+              <img
+                src={`${basePath}/assets/logo.png`}
+                alt="Logo"
+                className="w-16"
+              />
               <p className="font-lato text-white text-lg md:text-xl uppercase">
                 The Construction and <br /> Landscaping Company
               </p>

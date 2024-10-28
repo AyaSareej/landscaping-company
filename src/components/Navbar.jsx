@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const basePath =
+    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -11,11 +14,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-custom-teal h-20 flex items-center justify-between z-50 px-4 md:px-10">
       <div className="flex flex-row gap-2 items-center">
-        <img
-          src="/landscaping-company/assets/logo.png"
-          alt="Logo"
-          className="w-16"
-        />
+        <img src={`${basePath}/assets/logo.png`} alt="Logo" className="w-16" />
         <p className="font-lato text-white text-lg md:text-xl uppercase">
           The Construction and <br /> Landscaping Company
         </p>
@@ -31,7 +30,7 @@ const Navbar = () => {
       <div className="relative md:w-96 w-52 hidden md:block">
         <span className="absolute left-3 top-3">
           <img
-            src="/landscaping-company/assets/Vector.png"
+            src={`${basePath}/assets/Vector.png`}
             alt="Search Icon"
             className="w-5 h-5"
           />
@@ -50,7 +49,7 @@ const Navbar = () => {
         onClick={toggleSidebar}
       >
         <img
-          src="/landscaping-company/assets/bitcoin-icons_menu-filled.png"
+          src={`${basePath}/assets/bitcoin-icons_menu-filled.png`}
           alt="Menu Icon"
         />
         MENU
@@ -68,10 +67,7 @@ const Navbar = () => {
         <div className="fixed top-0 right-0 w-2/3 md:w-[724px] h-full bg-[#EEF9F3] shadow-lg z-50 transition-transform transform translate-x-0">
           <div className="flex justify-end p-1">
             <button onClick={toggleSidebar}>
-              <img
-                src="/landscaping-company/assets/ph_x-fill.png"
-                alt="Close Menu"
-              />
+              <img src={`${basePath}assets/ph_x-fill.png`} alt="Close Menu" />
             </button>
           </div>
           <nav className="flex items-center gap-4 font-inten uppercase text-3xl flex-col p-2 drop-shadow-md">

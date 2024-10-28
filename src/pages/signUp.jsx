@@ -1,9 +1,11 @@
-// Signup.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const basePath =
+  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+
 function Signup() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
@@ -31,7 +33,6 @@ function Signup() {
       return;
     }
 
-    // Handle signup logic (e.g., API call)
     setSuccessMessage("Signup successful!");
 
     // Navigate to verify account page after successful signup
@@ -59,7 +60,7 @@ function Signup() {
         {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src="/landscaping-company/assets/Rectangle%2011%20(6)%20-sign.png"
+            src={`${basePath}/assets/Rectangle%2011%20(6)%20-sign.png`} 
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -79,7 +80,7 @@ function Signup() {
           >
             {/* Logo */}
             <img
-              src="/landscaping-company/assets/logo-2b.png"
+              src={`${basePath}/assets/logo-2b.png`}
               alt="Logo"
               className="mb-4"
               style={{ width: "200px", height: "auto" }}
@@ -128,7 +129,7 @@ function Signup() {
                       />
                     ) : (
                       <img
-                        src="/landscaping-company/assets/clarity_user-line-p.png"
+                        src={`${basePath}/assets/clarity_user-line-p.png`}
                         alt="Profile"
                         className="w-28 h-28 absolute"
                       />
@@ -153,7 +154,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/ic_outline-email.png"
+                      src={`${basePath}/assets/ic_outline-email.png`}
                       alt="Email Icon"
                       className="w-5 h-5"
                     />
@@ -181,7 +182,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/ph_phone.png"
+                      src={`${basePath}/assets/ph_phone.png`}
                       alt="Phone Icon"
                       className="w-5 h-5"
                     />
@@ -209,7 +210,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/clarity_user-line.png"
+                      src={`${basePath}/assets/clarity_user-line.png`}
                       alt="User Icon"
                       className="w-5 h-5"
                     />
@@ -237,7 +238,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/carbon_password.png"
+                      src={`${basePath}/assets/carbon_password.png`}
                       alt="Password Icon"
                       className="w-5 h-5"
                     />
@@ -265,7 +266,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/carbon_password.png"
+                      src={`${basePath}/assets/carbon_password.png`}
                       alt="Password Icon"
                       className="w-5 h-5"
                     />

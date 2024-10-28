@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
+  const basePath =
+  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
   const images = [
-    "/landscaping-company/assets/product-details/product-d-1.png",
-    "/landscaping-company/assets/product-details/product-d-3.png",
-    "/landscaping-company/assets/product-details/Rectangle 48.png",
+    `${basePath}/assets/product-details/product-d-1.png`,
+    `${basePath}/assets/product-details/product-d-3.png`,
+    `${basePath}/assets/product-details/Rectangle 48.png`,
   ];
 
   return (
@@ -30,7 +32,7 @@ const ProductDetail = () => {
               className="absolute bottom-60 right-5 py-1 mt-2  hover:opacity-90 transition duration-200"
             >
               <img
-                src="/landscaping-company/assets/icons/fav.png"
+                src={`${basePath}/assets/icons/fav.png`}
                 alt="fav Icon"
                 className="w-16 h-16"
               />
@@ -63,7 +65,7 @@ const ProductDetail = () => {
       {/*  */}
       <div className="w-full">
         <img
-          src="/landscaping-company/assets/product-details/product-d-2.png"
+          src={`${basePath}/assets/product-details/product-d-2.png`}
           alt="Kronostep Z209 SPC Flooring"
           className="w-full h-auto"
         />
@@ -84,7 +86,7 @@ const ProductDetail = () => {
           <div className="flex mt-10 md:pl-20 gap-5 flex-col mb-4 uppercase font-inten text-xl md:text-[28px]">
             <p className="flex flex-row gap-6">
               <img
-                src="/landscaping-company/assets/icons/Vector.png"
+                src={`${basePath}/assets/icons/Vector.png`}
                 alt=""
                 className="h-8 w-8"
               />
@@ -92,7 +94,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/landscaping-company/assets/icons/Vector (1).png"
+                src={`${basePath}/assets/icons/Vector (1).png`}
                 alt=""
                 className="h-8 w-6"
               />{" "}
@@ -100,7 +102,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/landscaping-company/assets/icons/Vector (4).png"
+                src={`${basePath}/assets/icons/Vector (4).png`}
                 alt=""
                 className="h-8 w-8"
               />{" "}
@@ -108,7 +110,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src="/landscaping-company/assets/icons/Vector (3).png"
+                src={`${basePath}/assets/icons/Vector (3).png`}
                 alt=""
                 className="h-8 w-6"
               />{" "}

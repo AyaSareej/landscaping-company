@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+const basePath =
+  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+
 const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -22,7 +25,6 @@ const ChangePassword = () => {
       return;
     }
 
-    // Handle password change logic (e.g., API call)
     setSuccessMessage("Password changed successfully!");
   };
 
@@ -36,7 +38,7 @@ const ChangePassword = () => {
         {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src="/landscaping-company/assets/Rectangle%2011%20(5).png"
+            src={`${basePath}/assets/Rectangle%2011%20(5).png`}
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -48,21 +50,21 @@ const ChangePassword = () => {
               height: "470px",
               top: "50%", // Center vertically
               left: "50%", // Center horizontally
-              transform: "translate(-50%, -50%)", // Adjust for centering
-              zIndex: 10, // Ensure it's above the image
-              backgroundColor: "rgba(255, 255, 255, 0.5)", // Semi-transparent white
-              padding: "20px", // Add padding for content
+              transform: "translate(-50%, -50%)",
+              zIndex: 10,
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              padding: "20px",
             }}
           >
             {/* Logo */}
             <img
-              src="/landscaping-company/assets/logo-2b.png" // Replace with your logo path
+              src={`${basePath}/assets/logo-2b.png`}
               alt="Logo"
-              className="mb-4" // Space between logo and text
-              style={{ width: "200px", height: "auto" }} // Adjust logo size as needed
+              className="mb-4"
+              style={{ width: "200px", height: "auto" }}
             />
             {/* Text */}
-            <h2 className="text-center text-3xl  font-inten">
+            <h2 className="text-center text-3xl font-inten">
               The Construction and Landscaping Company
             </h2>
           </div>
@@ -89,24 +91,24 @@ const ChangePassword = () => {
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
                   htmlFor="currentPassword"
                 >
-                  EMAIL ADDRESS
+                  CURRENT PASSWORD
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/ic_outline-email.png"
+                      src={`${basePath}/assets/ic_outline-email.png`}
                       alt="Email Icon"
                       className="w-5 h-5"
                     />
                   </span>
                   <input
-                    type="email"
+                    type="password"
                     id="currentPassword"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="Example@gmail.com"
+                    placeholder="*****************"
                   />
                 </div>
               </div>
@@ -115,12 +117,12 @@ const ChangePassword = () => {
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
                   htmlFor="newPassword"
                 >
-                  PASSWORD
+                  NEW PASSWORD
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/carbon_password.png"
+                      src={`${basePath}/assets/carbon_password.png`}
                       alt="Key Icon"
                       className="w-5 h-5"
                     />
@@ -146,7 +148,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/carbon_password.png"
+                      src={`${basePath}/assets/carbon_password.png`}
                       alt="Key Icon"
                       className="w-5 h-5"
                     />

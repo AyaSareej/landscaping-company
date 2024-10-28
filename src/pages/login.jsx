@@ -1,4 +1,3 @@
-// Login.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -44,14 +43,12 @@ const Login = () => {
             </h2>
             <div className="flex justify-center mb-8">
               <img
-                src="/landscaping-company/assets/logo.png"
+                src={`${basePath}/assets/logo.png`}
                 alt="Logo"
                 className="w-24"
               />
             </div>
             <form onSubmit={handleLogin}>
-              {" "}
-              {/* Add onSubmit handler */}
               <div className="mb-4">
                 <label
                   className="block text-sm font-bold font-inten text-[#121C17] text-left"
@@ -62,8 +59,8 @@ const Login = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/ic_outline-email.png"
-                      alt="Key Icon"
+                      src={`${basePath}/assets/ic_outline-email.png`}
+                      alt="Email Icon"
                       className="w-5 h-5"
                     />
                   </span>
@@ -86,8 +83,8 @@ const Login = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src="/landscaping-company/assets/carbon_password.png"
-                      alt="Key Icon"
+                      src={`${basePath}/assets/carbon_password.png`}
+                      alt="Password Icon"
                       className="w-5 h-5"
                     />
                   </span>
@@ -131,11 +128,11 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="md:w-1/2 w-full">
+        <div className="md:w-1/2 w-full relative">
           <img
             src={images[currentImageIndex]}
             alt="Background"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       </div>
