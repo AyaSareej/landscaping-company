@@ -1,14 +1,14 @@
 // App.jsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./pages/login";
-import ChangePassword from "./pages/forgotpassword";
-import Signup from "./pages/signUp"; // Make sure this path is correct
-import ProfilePage from "./pages/profilepage"; // Adjust the path as needed
-import Verifyaccount from "./pages/verifyaccount";
-import LandingPage from "./pages/landingpage";
+import Login from "./login";
+import ChangePassword from "./forgotpassword";
+import Signup from "./signUp"; // Make sure this path is correct
+import ProfilePage from "./profilepage"; // Adjust the path as needed
+import Verifyaccount from "./verifyaccount";
+import LandingPage from "./landingpage";
 import "./fonts.css";
-import ProductDetails from "./pages/productDetails";
+import ProductDetails from "./productDetails";
 
 const App = () => {
   return (
