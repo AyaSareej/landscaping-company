@@ -46,6 +46,21 @@ const LandingPage = () => {
       title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
     },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
+    },
     // Add more wall items as needed
   ];
 
@@ -53,6 +68,21 @@ const LandingPage = () => {
     {
       id: 1,
       title: "Brick Wall 1",
+      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
     },
     {
@@ -74,12 +104,47 @@ const LandingPage = () => {
       title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
     },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
+    },
+    {
+      id: 2,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
+    },
     // Add more wall items as needed
   ];
 
   const kitchenItems = [
     {
       id: 1,
+      title: "",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
+    },
+    {
+      id: 2,
+      title: "",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
+    },
+    {
+      id: 2,
+      title: "",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
+    },
+    {
+      id: 2,
       title: "",
       imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
     },
@@ -142,9 +207,9 @@ const LandingPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="relative flex justify-center items-center flex-col">
+      <div className="mt-20 relative flex justify-center items-center flex-col">
         <img
-          src="/landscaping-company/assets/landingpage/landing-page.png"
+          src={`${basePath}/assets/landingpage/landing-page.png`}
           alt="main-landing-page-picture"
         />
         <div className="absolute inset-0 bg-[#121C17] opacity-50"></div>
@@ -160,7 +225,7 @@ const LandingPage = () => {
             padding: "20px",
           }}
         >
-          <p className="uppercase text-center text-white text-3xl md:text-5xl font-bold mb-2 font-lato">
+          <p className="uppercase text-center text-white text-xl md:text-5xl font-bold mb-2 font-lato flex-wrap">
             transform your vision into reality with our <br /> expert
             construction and landscaping services where quality meets
             creativity.

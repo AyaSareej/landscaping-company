@@ -1,52 +1,92 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const basePath =
   import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
 function Signup() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
-  const [username, setUsername] = useState("");
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [governorate, setGovernorate] = useState("");
   const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
 
     // Basic validation
-    if (newPassword !== confirmPassword) {
-      setErrorMessage("Passwords do not match.");
+    if (fullName.trim() === "") {
+      setErrorMessage("Full name is required.");
       return;
     }
-    if (newPassword.length < 8) {
+    if (phone.trim() === "") {
+      setErrorMessage("Phone number is required.");
+      return;
+    }
+    if (email.trim() === "" || !/\S+@\S+\.\S+/.test(email)) {
+      setErrorMessage("A valid email is required.");
+      return;
+    }
+    if (password.length < 8) {
       setErrorMessage("Password must be at least 8 characters long.");
       return;
     }
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
 
-    setSuccessMessage("Signup successful!");
+    const formData = new FormData();
+    formData.append("full_name", fullName);
+    formData.append("phone", phone);
+    formData.append("address", address);
+    formData.append("governorate", governorate);
+    formData.append("city", city);
+    formData.append("email", email);
+    formData.append("password", password);
+    if (profilePhoto) {
+      formData.append("photo", profilePhoto);
+    }
 
-    // Navigate to verify account page after successful signup
-    navigate("/verifyAccount");
+    try {
+      const response = await axios.post(
+        "https://backendsec3.trainees-mad-s.com/api/register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (response.status === 200) {
+        setSuccessMessage("Signup successful!");
+        // Pass the email to the verification page
+        navigate("/verifyAccount", { state: { email: email } });
+      }
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        setErrorMessage(error.response.data.message || "An error occurred.");
+      } else {
+        setErrorMessage("Network error. Please try again.");
+      }
+    }
   };
 
   const handleProfilePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfilePhoto(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setProfilePhoto(file);
     }
   };
 
@@ -55,16 +95,14 @@ function Signup() {
       {/* Green Top Towel */}
       <div className="w-full h-16 bg-gradient-to-r from-custom-dark-teal to-custom-teal z-10"></div>
 
-      {/* Main Content: Split into two sections */}
+      {/* Main Content */}
       <div className="flex flex-1 flex-col md:flex-row relative">
-        {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src={`${basePath}/assets/Rectangle%2011%20(6)%20-sign.png`} 
+            src={`${basePath}/assets/Rectangle%2011%20(6)%20-sign.png`}
             alt="Background"
             className="w-full h-full object-cover"
           />
-          {/* White Circle Overlay */}
           <div
             className="absolute bg-white rounded-full flex flex-col items-center justify-center"
             style={{
@@ -78,7 +116,6 @@ function Signup() {
               padding: "20px",
             }}
           >
-            {/* Logo */}
             <img
               src={`${basePath}/assets/logo-2b.png`}
               alt="Logo"
@@ -91,20 +128,17 @@ function Signup() {
           </div>
         </div>
 
-        {/* Right Side: Signup Form */}
         <div className="md:w-1/2 w-full bg-[#EEF9F3] flex flex-col justify-center p-10 relative">
           <div className="max-w-md mx-auto w-full text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-7 font-lato">
               SIGN UP
             </h1>
 
-            {/* Feedback Messages */}
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             {successMessage && (
               <p className="text-green-500">{successMessage}</p>
             )}
 
-            {/* Form */}
             <form onSubmit={handleSubmit}>
               {/* Profile Photo Upload */}
               <span className="text-xl mb-4 font-inten">PROFILE PICTURE</span>
@@ -123,7 +157,7 @@ function Signup() {
                   <div className="flex items-center justify-center w-44 h-44 bg-gray-200 rounded-full relative">
                     {profilePhoto ? (
                       <img
-                        src={profilePhoto}
+                        src={URL.createObjectURL(profilePhoto)}
                         alt="Profile"
                         className="w-28 h-28 rounded-full absolute"
                       />
@@ -203,7 +237,7 @@ function Signup() {
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="username"
+                  htmlFor="fullName"
                 >
                   USERNAME
                 </label>
@@ -217,9 +251,9 @@ function Signup() {
                   </span>
                   <input
                     type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    id="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                     placeholder="@USER_NAME"
@@ -231,7 +265,7 @@ function Signup() {
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="newPassword"
+                  htmlFor="password"
                 >
                   PASSWORD
                 </label>
@@ -245,9 +279,9 @@ function Signup() {
                   </span>
                   <input
                     type="password"
-                    id="newPassword"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                     placeholder="*****************"
@@ -296,8 +330,7 @@ function Signup() {
                   <div className="relative">
                     <select
                       id="country"
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
+                      onChange={(e) => setGovernorate(e.target.value)}
                       required
                       className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                     >
@@ -341,15 +374,6 @@ function Signup() {
                 SEND CODE
               </button>
             </form>
-            <p className="mt-4 font-bold font-inten text-sm ">
-              HAVE AN ACCOUNT?
-              <Link
-                to="/"
-                className="text-custom-teal font-bold font-inten ml-8 hover:underline"
-              >
-                LOGIN
-              </Link>
-            </p>
           </div>
         </div>
       </div>

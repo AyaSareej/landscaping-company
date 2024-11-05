@@ -15,7 +15,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 bg-custom-teal h-20 flex items-center justify-between z-50 px-4 md:px-10">
       <div className="flex flex-row gap-2 items-center">
         <img src={`${basePath}/assets/logo.png`} alt="Logo" className="w-16" />
-        <p className="font-lato text-white text-lg md:text-xl uppercase">
+        <p className="font-lato text-white text-sm md:text-xl uppercase">
           The Construction and <br /> Landscaping Company
         </p>
       </div>
@@ -45,19 +45,22 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu Toggle */}
       <div
-        className="font-inten font-bold flex items-center gap-3 text-2xl text-white cursor-pointer"
+        className="flex flex-row  items-center  cursor-pointer"
         onClick={toggleSidebar}
       >
         <img
           src={`${basePath}/assets/bitcoin-icons_menu-filled.png`}
           alt="Menu Icon"
         />
-        MENU
+        <div className="font-inten font-bold md:block p-1 items-center hidden md:text-2xl text-white">
+          MENU
+        </div>
       </div>
+
       {/* Book Now Button */}
       <button
         type="submit"
-        className="uppercase w-32 md:w-32 font-bold h-12 border-2 border-white bg-[#2BE784] text-[#121C17] text-md md:text-lg font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
+        className="uppercase w-24 md:w-32 font-bold h-12 border-2 border-white bg-[#2BE784] text-[#121C17] text-sm md:text-lg font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
       >
         Book Now
       </button>

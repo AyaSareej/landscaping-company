@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const basePath =
   import.meta.env.MODE === "production" ? "/landscaping-company" : "";
@@ -14,6 +15,9 @@ const images = [
 
 const Login = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,9 +28,27 @@ const Login = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    navigate("/profile");
+    setErrorMessage("");
+
+    try {
+      const response = await axios.post(
+        "https://backendsec3.trainees-mad-s.com/api/login",
+        { email, password }
+      );
+
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/profile");
+      }
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.message || "Login failed.");
+      } else {
+        setErrorMessage("Network error. Please try again.");
+      }
+    }
   };
 
   return (
@@ -48,6 +70,7 @@ const Login = () => {
                 className="w-24"
               />
             </div>
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             <form onSubmit={handleLogin}>
               <div className="mb-4">
                 <label
@@ -56,22 +79,15 @@ const Login = () => {
                 >
                   EMAIL ADDRESS
                 </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-3">
-                    <img
-                      src={`${basePath}/assets/ic_outline-email.png`}
-                      alt="Email Icon"
-                      className="w-5 h-5"
-                    />
-                  </span>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="example@gmail.com"
-                  />
-                </div>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
+                  placeholder="example@gmail.com"
+                />
               </div>
               <div className="mb-4">
                 <label
@@ -80,22 +96,15 @@ const Login = () => {
                 >
                   PASSWORD
                 </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-3">
-                    <img
-                      src={`${basePath}/assets/carbon_password.png`}
-                      alt="Password Icon"
-                      className="w-5 h-5"
-                    />
-                  </span>
-                  <input
-                    type="password"
-                    id="password"
-                    required
-                    className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="********"
-                  />
-                </div>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
+                  placeholder="********"
+                />
               </div>
               <div className="flex justify-center">
                 <div className="text-sm text-left font-bold text-[#121C17] font-inten mb-4">
@@ -132,7 +141,7 @@ const Login = () => {
           <img
             src={images[currentImageIndex]}
             alt="Background"
-            className="object-cover w-full h-full"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
