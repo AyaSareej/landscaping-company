@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Verifypassword = () => {
+const Verifyaccount = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [code, setCode] = useState(["", "", "", "", "", ""]);
@@ -40,7 +40,7 @@ const Verifypassword = () => {
 
     try {
       const response = await fetch(
-        "https://backendsec3.trainees-mad-s.com/api/verify-email",
+        "https://backendsec3.trainees-mad-s.com/api/user/password/verify-forgot-Password-code",
         {
           method: "POST",
           headers: {
@@ -90,7 +90,7 @@ const Verifypassword = () => {
       {/* Paragraphs Section */}
       <div className="text-center mb-6">
         <p className="font-inten font-bold text-xl md:text-2xl">
-          PLEASE VERIFY YOUR ACCOUNT
+          PLEASE VERIFY YOUR PASSWORD
         </p>
         <p className="font-inten md:text-xl text-md uppercase mt-2">
           Enter the 6-digit code (contains letters and numbers) that we sent to
@@ -137,4 +137,4 @@ const Verifypassword = () => {
   );
 };
 
-export default Verifypassword;
+export default Verifyaccount;

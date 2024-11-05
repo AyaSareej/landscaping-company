@@ -1,11 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Import Link
-import Navbar from "../components/Navbar"; // Adjust the import path as necessary
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import axios from "axios";
 
 const basePath =
   import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
 const Profilepage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("access_token");
+      console.log("Token:", token);
+      if (!token) {
+        console.error("No token found. Please log in again.");
+        return;
+      }
+
+      const response = await axios.get(
+        "https://backendsec3.trainees-mad-s.com/api/logout",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Logout response:", response.data);
+      localStorage.removeItem("access_token");
+      navigate("/");
+    } catch (error) {
+      console.error(
+        "Logout error:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
   return (
     <div className="bg-[#EEF9F3] min-h-screen">
       <Navbar />
@@ -34,10 +71,18 @@ const Profilepage = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pl-4 md:pl-8 ">
           <div className="md:w-1/3 flex flex-col items-center md:items-end">
             <div className="text-left mr-10 flex flex-col gap-4 mt-10 mb-10 z-10">
-              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">NAME</p>
-              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">COUNTRY</p>
-              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">EMAIL</p>
-              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">PHONE</p>
+              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
+                NAME
+              </p>
+              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
+                COUNTRY
+              </p>
+              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
+                EMAIL
+              </p>
+              <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
+                PHONE
+              </p>
             </div>
             <div className="self-end absolute bottom-0 left-2">
               <img src={`${basePath}/assets/pale-85 1.png`} alt="" />
@@ -45,20 +90,30 @@ const Profilepage = () => {
           </div>
           <div className="bg-[#031C1D] md:w-2/3 h-[420px] flex justify-start items-center">
             <div className="text-left ml-10 flex flex-col gap-4">
-              <p className="font-inten md:text-2xl text-md text-white uppercase">James Williams</p>
-              <p className="font-inten md:text-2xl text-md text-white uppercase">USA - Washington, D.C.</p>
-              <p className="font-inten md:text-2xl text-md text-white uppercase">james96@gmail.com</p>
-              <p className="font-inten md:text-2xl text-md text-white uppercase">+1 202 555 1234</p>
+              <p className="font-inten md:text-2xl text-md text-white uppercase">
+                James Williams
+              </p>
+              <p className="font-inten md:text-2xl text-md text-white uppercase">
+                USA - Washington, D.C.
+              </p>
+              <p className="font-inten md:text-2xl text-md text-white uppercase">
+                james96@gmail.com
+              </p>
+              <p className="font-inten md:text-2xl text-md text-white uppercase">
+                +1 202 555 1234
+              </p>
             </div>
-            <Link to="/"> 
-              <button
-                type="submit"
-                className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
-              >
-                <img src={`${basePath}/assets/logout.png`} alt="Logout Icon" className="w-6 h-6 mr-2" />
-                Logout
-              </button>
-            </Link>
+            <button
+              onClick={handleLogout}
+              className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
+            >
+              <img
+                src={`${basePath}/assets/logout.png`}
+                alt="Logout Icon"
+                className="w-6 h-6 mr-2"
+              />
+              Logout
+            </button>
           </div>
         </div>
       </main>

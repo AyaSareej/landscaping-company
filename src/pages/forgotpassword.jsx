@@ -1,21 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; 
 
 const basePath =
   import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
 const ChangePassword = () => {
-  const [currentPassword, setCurrentPassword] = useState("");
+  const [email, setEmail] = useState(""); 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
 
-    // Basic validation
     if (newPassword !== confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
@@ -25,7 +28,36 @@ const ChangePassword = () => {
       return;
     }
 
-    setSuccessMessage("Password changed successfully!");
+    try {
+      // Prepare the payload for the request
+      const payload = {
+        email: email, // Send the email to get the reset code
+      };
+
+      console.log("Payload being sent:", payload); // Log the payload
+
+      // Make the POST request to request a password reset code
+      const response = await axios.post(
+        "https://backendsec3.trainees-mad-s.com/api/user/password/forgot-password",
+        payload
+      );
+
+      // Check for successful response
+      if (response.status === 200) {
+        setSuccessMessage("A reset code has been sent to your email!");
+        // Navigate to the verification page
+        navigate("/verifyPassword", { state: { email: email } });
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error("Error response data:", error.response.data); // Log the error response
+        setErrorMessage(
+          error.response.data.error || "Failed to request reset code."
+        );
+      } else {
+        setErrorMessage("Network error. Please try again.");
+      }
+    }
   };
 
   return (
@@ -48,8 +80,8 @@ const ChangePassword = () => {
             style={{
               width: "470px",
               height: "470px",
-              top: "50%", // Center vertically
-              left: "50%", // Center horizontally
+              top: "50%",
+              left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
               backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -88,10 +120,10 @@ const ChangePassword = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
-                  className="block text-sm font-medium font-inter text-[#121C17] text-left"
-                  htmlFor="currentPassword"
+                  className="uppercase block text-sm font-medium font-inter text-[#121C17] text-left"
+                  htmlFor="email"
                 >
-                  CURRENT PASSWORD
+                  Email address
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-3">
@@ -102,13 +134,13 @@ const ChangePassword = () => {
                     />
                   </span>
                   <input
-                    type="password"
-                    id="currentPassword"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className="bg-gray-200 text-[#121C17] font-inter py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
-                    placeholder="*****************"
+                    placeholder="example@gmail.com"
                   />
                 </div>
               </div>
@@ -172,7 +204,7 @@ const ChangePassword = () => {
                 type="submit"
                 className="w-44 h-12 border border-[#121C17] bg-[#2BE784] text-[#121C17] font-medium font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
               >
-                SEND CODE
+                CHANGE PASSWORD
               </button>
             </form>
           </div>

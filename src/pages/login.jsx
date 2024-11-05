@@ -38,8 +38,10 @@ const Login = () => {
         { email, password }
       );
 
+      console.log("Login response:", response.data); 
+
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("access_token", response.data.access_token); 
         navigate("/profile");
       }
     } catch (error) {

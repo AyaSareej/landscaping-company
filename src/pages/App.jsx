@@ -7,6 +7,7 @@ import ProfilePage from "./profilepage";
 import Verifyaccount from "./verifyaccount";
 import LandingPage from "./landingpage";
 import ProductDetails from "./productDetails";
+import Verifypassword from "./Verifypassword";
 import "./fonts.css";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/verifyAccount" element={<Verifyaccount />} />
         <Route path="/home" element={<LandingPage />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/verifyPassword" element={<Verifypassword />} />
       </Routes>
     </Router>
   );
