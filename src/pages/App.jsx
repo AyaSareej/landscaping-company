@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./login";
 import ChangePassword from "./forgotpassword";
-import Signup from "./signUp"; 
+import Signup from "./signUp";
 import ProfilePage from "./profilepage";
 import Verifyaccount from "./verifyaccount";
 import LandingPage from "./landingpage";
@@ -15,6 +15,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/signUp" element={<Signup />} />
         <Route path="/profile" element={<ProfilePage />} />

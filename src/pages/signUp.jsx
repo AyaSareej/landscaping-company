@@ -70,7 +70,6 @@ function Signup() {
       );
       if (response.status === 200) {
         setSuccessMessage("Signup successful!");
-        // Pass the email to the verification page
         navigate("/verifyAccount", { state: { email: email } });
       }
     } catch (error) {
@@ -133,8 +132,6 @@ function Signup() {
             <h1 className="text-3xl md:text-5xl font-bold mb-7 font-lato">
               SIGN UP
             </h1>
-
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             {successMessage && (
               <p className="text-green-500">{successMessage}</p>
             )}
@@ -366,10 +363,15 @@ function Signup() {
                   </div>
                 </div>
               </div>
-
+              {errorMessage && (
+                <div className="w-full uppercase text-sm md:text-xl items-center border-4 justify-center flex flex-row  font-inten border-[#D8814F] text-[#D8814F] px-4 py-3 my-2 rounded ">
+                  <img src={`${basePath}/assets/icons/error.png`} alt="" />
+                  {errorMessage}
+                </div>
+              )}
               <button
                 type="submit"
-                className="w-44 h-12 border border-[#121C17] bg-[#2BE784] text-[#121C17] font-medium font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
+                className="w-44 h-12 border  border-[#121C17] bg-[#2BE784] text-[#121C17] font-medium font-inter py-1 mt-2 rounded-lg shadow-md hover:opacity-90 transition duration-200"
               >
                 SEND CODE
               </button>

@@ -38,10 +38,10 @@ const Login = () => {
         { email, password }
       );
 
-      console.log("Login response:", response.data); 
+      console.log("Login response:", response.data);
 
       if (response.status === 200) {
-        localStorage.setItem("access_token", response.data.access_token); 
+        localStorage.setItem("access_token", response.data.access_token);
         navigate("/profile");
       }
     } catch (error) {
@@ -72,7 +72,7 @@ const Login = () => {
                 className="w-24"
               />
             </div>
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
             <form onSubmit={handleLogin}>
               <div className="mb-4">
                 <label
@@ -91,7 +91,7 @@ const Login = () => {
                   placeholder="example@gmail.com"
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-6">
                 <label
                   className="block text-sm font-bold font-inten text-[#121C17] text-left"
                   htmlFor="password"
@@ -104,10 +104,16 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1 text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
+                  className="bg-gray-200 text-[#121C17] font-inten py-2 pl-10 pr-4 mt-1  text-base block w-full border border-[#121C17] rounded-md shadow-md focus:outline-none focus:ring focus:border-green-500 hover:bg-gray-200 transition-all duration-500"
                   placeholder="********"
                 />
               </div>
+              {errorMessage && (
+                <div className="w-full uppercase text-sm md:text-xl items-center border-4 justify-center flex flex-row gap-2 font-inten border-[#D8814F] text-[#D8814F] px-2 py-3 my-2 rounded ">
+                  <img src={`${basePath}/assets/icons/error.png`} alt="" />
+                  {errorMessage}
+                </div>
+              )}
               <div className="flex justify-center">
                 <div className="text-sm text-left font-bold text-[#121C17] font-inten mb-4">
                   <p className="mt-4">

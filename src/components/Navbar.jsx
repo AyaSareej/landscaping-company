@@ -15,7 +15,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 bg-custom-teal h-20 flex items-center justify-between z-50 px-4 md:px-10">
       <div className="flex flex-row gap-2 items-center">
         <img src={`${basePath}/assets/logo.png`} alt="Logo" className="w-16" />
-        <p className="font-lato text-white text-sm md:text-xl uppercase">
+        <p className="font-lato text-white text-sm  md:text-xl uppercase">
           The Construction and <br /> Landscaping Company
         </p>
       </div>

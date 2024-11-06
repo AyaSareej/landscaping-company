@@ -1,6 +1,7 @@
 import React from "react";
 import HorizontalScrollSection from "../components/horizontalScroll";
 import Navbar from "../components/Navbar";
+import ItemListPage from "../components/ItemListPage";
 import { Link } from "react-router-dom";
 
 const basePath =

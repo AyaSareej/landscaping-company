@@ -10,9 +10,10 @@ const Profilepage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("access_token");
     if (!token) {
-      navigate("/login");
+      navigate("/");
+      console.log("no token");
     }
   }, [navigate]);
 
@@ -49,7 +50,7 @@ const Profilepage = () => {
       {/* Main Section */}
       <main className="relative bg-[#EEF9F3] w-full pt-20">
         {/* Profile Picture */}
-        <div className="absolute left-10 top-96 mb-4 md:mb-0 z-40">
+        <div className="absolute left-10 md:top-96 top-24 ml-24 mb-4 md:mb-0 z-40">
           <img
             src={`${basePath}/assets/profile-ing-ex.jpg`}
             alt="Profile"
@@ -68,9 +69,12 @@ const Profilepage = () => {
         </div>
 
         {/* Profile Information Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pl-4 md:pl-8 ">
+        <div className="flex h-full w-full flex-row md:flex-row justify-between items-start md:items-center pl-4 md:pl-8 ">
+          <div className="self-end absolute bottom-0 left-2">
+            <img src={`${basePath}/assets/pale-85 1.png`} alt="" />
+          </div>
           <div className="md:w-1/3 flex flex-col items-center md:items-end">
-            <div className="text-left mr-10 flex flex-col gap-4 mt-10 mb-10 z-10">
+            <div className="text-left  mr-10 flex flex-col gap-4 mt-10 mb-10 z-10">
               <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
                 NAME
               </p>
@@ -83,9 +87,6 @@ const Profilepage = () => {
               <p className="font-bold font-inten md:text-2xl text-md text-[#14B05D] uppercase">
                 PHONE
               </p>
-            </div>
-            <div className="self-end absolute bottom-0 left-2">
-              <img src={`${basePath}/assets/pale-85 1.png`} alt="" />
             </div>
           </div>
           <div className="bg-[#031C1D] md:w-2/3 h-[420px] flex justify-start items-center">
