@@ -21,10 +21,19 @@ const Navbar = () => {
       </div>
       {/* White Line */}
       <div className="bg-white w-1 h-20 hidden md:block"></div>
-      <nav className="font-lato uppercase text-xl font-bold text-white links hidden md:flex md:gap-14 gap-10">
-        <Link to="/home">Home</Link>
-        <a href="#about">About Us</a>
-        <a href="#projects">Projects</a>
+      <nav className="font-lato uppercase text-xl font-bold text-white links hidden md:flex md:gap-14 gap-10 ">
+        <Link className="relative inline-block group" to="/home">
+          <span className="hover:underline">Home</span>
+          <span className="absolute left-0 bottom-0 w-full h-1 bg-custom-teal transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </Link>{" "}
+        <a href="#about" className="relative inline-block group">
+          <span className="hover:underline">About Us</span>
+          <span className="absolute left-0 bottom-0 w-full h-1 bg-custom-teal transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+        <a href="#projects" className="relative inline-block group">
+          <span className="hover:underline">Projects</span>
+          <span className="absolute left-0 bottom-0 w-full h-1 bg-custom-teal transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
       </nav>
       {/* Search */}
       <div className="relative md:w-96 w-52 hidden md:block">

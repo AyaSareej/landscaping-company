@@ -3,6 +3,7 @@ import HorizontalScrollSection from "../components/horizontalScroll";
 import Navbar from "../components/Navbar";
 import ItemListPage from "../components/ItemListPage";
 import { Link } from "react-router-dom";
+import VideoSection from "../components/VideoSection";
 
 const basePath =
   import.meta.env.MODE === "production" ? "/landscaping-company" : "";
@@ -17,22 +18,27 @@ const LandingPage = () => {
     {
       id: 2,
       title: "shade butterscotch 2",
-      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
+      imgSrc: `${basePath}/assets/landingpage/floors/dark-brown.png`,
     },
     {
       id: 3,
       title: "shade butterscotch 3",
-      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
+      imgSrc: `${basePath}/assets/landingpage/floors/light-brown.png`,
     },
     {
       id: 4,
       title: "shade butterscotch 4",
-      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
+      imgSrc: `${basePath}/assets/landingpage/floors/brown.png`,
     },
     {
       id: 5,
       title: "shade butterscotch 5",
-      imgSrc: `${basePath}/assets/landingpage/floors/bitcoin-icons_menu-filled.png`,
+      imgSrc: `${basePath}/assets/landingpage/floors/s-brown.png`,
+    },
+    {
+      id: 6,
+      title: "shade butterscotch 5",
+      imgSrc: `${basePath}/assets/landingpage/floors/wgite.png`,
     },
   ];
 
@@ -45,24 +51,18 @@ const LandingPage = () => {
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
+      imgSrc: `${basePath}/assets/landingpage/walls/red.png`,
     },
     {
-      id: 2,
+      id: 3,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/walls/blue.png`,
+    },
+    {
+      id: 4,
       title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
     },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
-    },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/walls/Rectangle 39.png`,
-    },
-    // Add more wall items as needed
   ];
 
   const sinkItems = [
@@ -74,24 +74,18 @@ const LandingPage = () => {
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
+      imgSrc: `${basePath}/assets/landingpage/skins/ovel-sink.png`,
     },
     {
-      id: 2,
+      id: 3,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/skins/black-sink.png`,
+    },
+    {
+      id: 4,
       title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
     },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
-    },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/skins/skin.png`,
-    },
-    // Add more wall items as needed
   ];
 
   const facItems = [
@@ -103,29 +97,18 @@ const LandingPage = () => {
     {
       id: 2,
       title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-2.png`,
     },
     {
-      id: 2,
+      id: 3,
+      title: "Wood Panel Wall 2",
+      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-3.png`,
+    },
+    {
+      id: 4,
       title: "Wood Panel Wall 2",
       imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
     },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
-    },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
-    },
-    {
-      id: 2,
-      title: "Wood Panel Wall 2",
-      imgSrc: `${basePath}/assets/landingpage/faucets/faucet-1.png`,
-    },
-    // Add more wall items as needed
   ];
 
   const kitchenItems = [
@@ -137,24 +120,18 @@ const LandingPage = () => {
     {
       id: 2,
       title: "",
-      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen-2.png`,
     },
     {
-      id: 2,
+      id: 3,
+      title: "",
+      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen-3.png`,
+    },
+    {
+      id: 4,
       title: "",
       imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
     },
-    {
-      id: 2,
-      title: "",
-      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
-    },
-    {
-      id: 2,
-      title: "",
-      imgSrc: `${basePath}/assets/landingpage/kitchen/kitchen 1.png`,
-    },
-    // Add more wall items as needed
   ];
 
   const shrubItems = [
@@ -171,14 +148,13 @@ const LandingPage = () => {
     {
       id: 3,
       title: "",
-      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png`,
+      imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle-41.png`,
     },
     {
       id: 4,
       title: "",
       imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/shrubs/Rectangle 39.png`,
     },
-    // Add more wall items as needed
   ];
 
   const pavementItems = [
@@ -202,7 +178,6 @@ const LandingPage = () => {
       title: "",
       imgSrc: `${basePath}/assets/LANDSCAPING DEPARTMENT/pavements/Rectangle 40 (1).png`,
     },
-    // Add more wall items as needed
   ];
 
   return (
@@ -226,7 +201,7 @@ const LandingPage = () => {
             padding: "20px",
           }}
         >
-          <p className="uppercase text-center text-white text-xl md:text-5xl font-bold mb-2 font-lato flex-wrap">
+          <p className="uppercase text-center text-white text-sm md:text-5xl font-bold mb-2 font-lato flex-wrap">
             transform your vision into reality with our <br /> expert
             construction and landscaping services where quality meets
             creativity.
@@ -360,17 +335,7 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className="h-[643px] w-[1669px] relative flex justify-center items-center flex-col">
-            <img
-              src={`${basePath}/assets/Rectangle 52.png`}
-              className="absolute inset-0 w-full h-full object-cover"
-              alt="Background"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
-
-            <div className="relative flex justify-center items-center flex-col z-10"></div>
-          </div>
+          <VideoSection />
         </div>
         <div className="bg-custom-teal bg-opacity-50  flex flex-col p-10">
           <p className="uppercase text-[#121C17] text-3xl md:text-6xl mb-2 font-lato">
@@ -399,7 +364,7 @@ const LandingPage = () => {
               </div>
 
               {/* Grid Section */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[...Array(6)].map((_, index) => (
                   <div
                     key={index}
@@ -439,14 +404,14 @@ const LandingPage = () => {
               </div>
 
               {/* Grid Section */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[...Array(6)].map((_, index) => (
                   <div
                     key={index}
                     className="w-full h-[297px] bg-gray-200" // Set width to full for responsiveness
                   >
                     <img
-                      src={`${basePath}/assets/landingpage/int ${
+                      src={`${basePath}/assets/landingpage/exterior/view-${
                         index + 1
                       }.png`} // Replace with your image path
                       alt={`Image ${index + 1}`}

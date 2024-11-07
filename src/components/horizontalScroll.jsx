@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HorizontalScrollSection = ({ titleId, items }) => {
-  // Determine the title based on the titleId prop
+  const basePath =
+    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+    
   const getTitleById = (id) => {
     switch (id) {
       case "Floor":
@@ -30,7 +32,10 @@ const HorizontalScrollSection = ({ titleId, items }) => {
       <div className="flex flex-row justify-between mr-10 my-8">
         <div className="flex flex-row">
           <div className="h-[33px] w-[54px] bg-custom-dark mr-4"></div>
-          <h2 className="text-5xl font-lato text-center mb-4" id={titleId}>
+          <h2
+            className="md:text-5xl text-2xl  font-lato text-center mb-4"
+            id={titleId}
+          >
             {getTitleById(titleId)}
           </h2>
         </div>
@@ -40,7 +45,7 @@ const HorizontalScrollSection = ({ titleId, items }) => {
             <button className="bg-[#074143] text-custom-light font-inten font-medium md:text-[28px] py-2 px-6 rounded hover:bg-green-600 transition duration-200 flex items-center justify-center space-x-4">
               <span className="uppercase">View All</span>
               <img
-                src="/assets/icons/Vector (2).png"
+                src={`${basePath}/assets/icons/Vector (2).png`}
                 alt="View All Icon"
                 className="w-7 h-7"
               />
@@ -61,7 +66,7 @@ const HorizontalScrollSection = ({ titleId, items }) => {
                 alt={item.title}
                 className="w-[471px] h-[427px] object-cover"
               />
-              <h3 className="w-[300px] absolute bottom-2 left-2 font-inten font-bold text-3xl text-[#121C17] p-2 whitespace-normal break-words">
+              <h3 className="w-[300px] absolute bottom-2 left-2 font-inten font-bold text-xl md:text-3xl text-[#121C17] p-2 whitespace-normal break-words">
                 {item.title}
               </h3>
             </Link>

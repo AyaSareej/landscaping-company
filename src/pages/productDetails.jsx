@@ -4,15 +4,18 @@ import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [isFavorited, setIsFavorited] = useState(false);
   const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
   const images = [
     `${basePath}/assets/product-details/product-d-1.png`,
     `${basePath}/assets/product-details/product-d-3.png`,
     `${basePath}/assets/product-details/Rectangle 48.png`,
   ];
-
+  const handleFavoriteToggle = () => {
+    setIsFavorited((prev) => !prev);
+  };
   return (
     <div className="min-h-screen w-full h-full pt-20 bg-custom-light shadow-lg relative">
       <Navbar />
@@ -28,13 +31,16 @@ const ProductDetail = () => {
           />
           <Link to="">
             <button
-              type="submit"
-              className="absolute bottom-60 right-5 py-1 mt-2  hover:opacity-90 transition duration-200"
+              type="button"
+              className="absolute bottom-60 right-5 py-1 mt-2 hover:opacity-90 transition duration-200"
+              onClick={handleFavoriteToggle} 
             >
               <img
-                src={`${basePath}/assets/icons/fav.png`}
-                alt="fav Icon"
-                className="w-16 h-16"
+                src={`${basePath}/assets/icons/${
+                  isFavorited ? "fav-full.png" : "fav.png"
+                }`} 
+                alt="Favorite Icon"
+                className="w-16 h-16 transition-transform duration-300" 
               />
             </button>
           </Link>
