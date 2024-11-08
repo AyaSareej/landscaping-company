@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
 const VideoSection = () => {
-  const basePath =
-    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+    const basePath = import.meta.env.MODE === 'production' ? '' : '';
+
 
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -26,7 +26,7 @@ const VideoSection = () => {
     >
       <video
         ref={videoRef}
-        src={`${basePath}/assets/Exterior.mp4`}
+        src={`${import.meta.env.BASE_URL}assets/Exterior.mp4`}
         className="absolute inset-0 w-full h-full object-cover cursor-pointer"
         alt="Background"
         autoPlay
@@ -39,7 +39,7 @@ const VideoSection = () => {
       {!isPlaying && (
         <div className="relative flex justify-center items-center z-10">
           <img
-            src={`${basePath}/assets/icons/play.png`}
+            src={`${import.meta.env.BASE_URL}assets/icons/play.png`}
             alt="Play Button"
             className="w-16 h-16 md:w-24 md:h-24 cursor-pointer"
           />

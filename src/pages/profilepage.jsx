@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 
-const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+const basePath = import.meta.env.MODE === "production" ? "" : "";
 
 const Profilepage = () => {
   const navigate = useNavigate();
@@ -52,7 +51,7 @@ const Profilepage = () => {
         {/* Profile Picture */}
         <div className="absolute left-10 md:top-96 top-24 ml-24 mb-4 md:mb-0 z-40">
           <img
-            src={`${basePath}/assets/profile-ing-ex.jpg`}
+            src={`${import.meta.env.BASE_URL}assets/profile-ing-ex.jpg`}
             alt="Profile"
             className="w-56 h-56 rounded-full border-8 border-[#14B05D] shadow-lg"
           />
@@ -62,7 +61,7 @@ const Profilepage = () => {
         </div>
         <div>
           <img
-            src={`${basePath}/assets/Rectangle 30.png`}
+            src={`${import.meta.env.BASE_URL}assets/Rectangle 30.png`}
             alt="Background"
             className="w-full"
           />
@@ -71,7 +70,10 @@ const Profilepage = () => {
         {/* Profile Information Section */}
         <div className="flex h-full w-full flex-row md:flex-row justify-between items-start md:items-center pl-4 md:pl-8 ">
           <div className="self-end absolute bottom-0 left-2">
-            <img src={`${basePath}/assets/pale-85 1.png`} alt="" />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/pale-85 1.png`}
+              alt=""
+            />
           </div>
           <div className="md:w-1/3 flex flex-col items-center md:items-end">
             <div className="text-left  mr-10 flex flex-col gap-4 mt-10 mb-10 z-10">
@@ -109,7 +111,7 @@ const Profilepage = () => {
               className="absolute bottom-10 right-10 w-44 h-12 uppercase border-2 font-inten border-white bg-[#E55B5B] font-medium text-xl text-white py-1 mt-2 rounded-xl shadow-md hover:opacity-90 transition duration-200 flex items-center justify-center gap-2"
             >
               <img
-                src={`${basePath}/assets/logout.png`}
+                src={`${import.meta.env.BASE_URL}assets/logout.png`}
                 alt="Logout Icon"
                 className="w-6 h-6 mr-2"
               />

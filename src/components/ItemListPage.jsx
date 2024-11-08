@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
-const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+const basePath = import.meta.env.MODE === 'production' ? '' : '';
+
 
 const CategoryPage = ({ allItems }) => {
   const { category } = useParams();

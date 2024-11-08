@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+const basePath = import.meta.env.MODE === "production" ? "" : "";
 
 const images = [
-  `${basePath}/assets/Rectangle%2011.png`,
-  `${basePath}/assets/Rectangle%2011%20(4).png`,
-  `${basePath}/assets/Rectangle%2011%20(2).png`,
-  `${basePath}/assets/Rectangle%2011%20(3).png`,
-  `${basePath}/assets/Rectangle%2011.png`,
+  `${import.meta.env.BASE_URL}assets/Rectangle%2011.png`,
+  `${import.meta.env.BASE_URL}assets/Rectangle%2011%20(4).png`,
+  `${import.meta.env.BASE_URL}assets/Rectangle%2011%20(2).png`,
+  `${import.meta.env.BASE_URL}assets/Rectangle%2011%20(3).png`,
+  `${import.meta.env.BASE_URL}assets/Rectangle%2011.png`,
 ];
 
 const Login = () => {
@@ -67,7 +66,7 @@ const Login = () => {
             </h2>
             <div className="flex justify-center mb-8">
               <img
-                src={`${basePath}/assets/logo.png`}
+                src={`${import.meta.env.BASE_URL}assets/logo.png`}
                 alt="Logo"
                 className="w-24"
               />
@@ -110,7 +109,10 @@ const Login = () => {
               </div>
               {errorMessage && (
                 <div className="w-full uppercase text-sm md:text-xl items-center border-4 justify-center flex flex-row gap-2 font-inten border-[#D8814F] text-[#D8814F] px-2 py-3 my-2 rounded ">
-                  <img src={`${basePath}/assets/icons/error.png`} alt="" />
+                  <img
+                    src={`${import.meta.env.BASE_URL}assets/icons/error.png`}
+                    alt=""
+                  />
                   {errorMessage}
                 </div>
               )}

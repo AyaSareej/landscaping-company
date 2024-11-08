@@ -5,13 +5,12 @@ import { Link } from "react-router-dom";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isFavorited, setIsFavorited] = useState(false);
-  const basePath =
-    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+  const basePath = import.meta.env.MODE === "production" ? "" : "";
 
   const images = [
-    `${basePath}/assets/product-details/product-d-1.png`,
-    `${basePath}/assets/product-details/product-d-3.png`,
-    `${basePath}/assets/product-details/Rectangle 48.png`,
+    `${import.meta.env.BASE_URL}assets/product-details/product-d-1.png`,
+    `${import.meta.env.BASE_URL}assets/product-details/product-d-3.png`,
+    `${import.meta.env.BASE_URL}assets/product-details/Rectangle 48.png`,
   ];
   const handleFavoriteToggle = () => {
     setIsFavorited((prev) => !prev);
@@ -33,14 +32,14 @@ const ProductDetail = () => {
             <button
               type="button"
               className="absolute bottom-60 right-5 py-1 mt-2 hover:opacity-90 transition duration-200"
-              onClick={handleFavoriteToggle} 
+              onClick={handleFavoriteToggle}
             >
               <img
-                src={`${basePath}/assets/icons/${
+                src={`${import.meta.env.BASE_URL}assets/icons/${
                   isFavorited ? "fav-full.png" : "fav.png"
-                }`} 
+                }`}
                 alt="Favorite Icon"
-                className="w-16 h-16 transition-transform duration-300" 
+                className="w-16 h-16 transition-transform duration-300"
               />
             </button>
           </Link>
@@ -71,7 +70,9 @@ const ProductDetail = () => {
       {/*  */}
       <div className="w-full">
         <img
-          src={`${basePath}/assets/product-details/product-d-2.png`}
+          src={`${
+            import.meta.env.BASE_URL
+          }assets/product-details/product-d-2.png`}
           alt="Kronostep Z209 SPC Flooring"
           className="w-full h-auto"
         />
@@ -92,7 +93,7 @@ const ProductDetail = () => {
           <div className="flex mt-10 md:pl-20 gap-5 flex-col mb-4 uppercase font-inten text-xl md:text-[28px]">
             <p className="flex flex-row gap-6">
               <img
-                src={`${basePath}/assets/icons/Vector.png`}
+                src={`${import.meta.env.BASE_URL}assets/icons/Vector.png`}
                 alt=""
                 className="h-8 w-8"
               />
@@ -100,7 +101,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src={`${basePath}/assets/icons/Vector (1).png`}
+                src={`${import.meta.env.BASE_URL}assets/icons/Vector (1).png`}
                 alt=""
                 className="h-8 w-6"
               />{" "}
@@ -108,7 +109,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src={`${basePath}/assets/icons/Vector (4).png`}
+                src={`${import.meta.env.BASE_URL}assets/icons/Vector (4).png`}
                 alt=""
                 className="h-8 w-8"
               />{" "}
@@ -116,7 +117,7 @@ const ProductDetail = () => {
             </p>
             <p className="flex flex-row gap-6">
               <img
-                src={`${basePath}/assets/icons/Vector (3).png`}
+                src={`${import.meta.env.BASE_URL}assets/icons/Vector (3).png`}
                 alt=""
                 className="h-8 w-6"
               />{" "}

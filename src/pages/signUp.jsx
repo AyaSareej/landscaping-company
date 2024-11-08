@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const basePath = import.meta.env.MODE === 'production' ? '' : '';
 
-const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
 
 function Signup() {
   const navigate = useNavigate();
@@ -98,7 +97,7 @@ function Signup() {
       <div className="flex flex-1 flex-col md:flex-row relative">
         <div className="md:w-1/2 w-full relative">
           <img
-            src={`${basePath}/assets/Rectangle%2011%20(6)%20-sign.png`}
+            src={`${import.meta.env.BASE_URL}assets/Rectangle%2011%20(6)%20-sign.png`}
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -116,7 +115,7 @@ function Signup() {
             }}
           >
             <img
-              src={`${basePath}/assets/logo-2b.png`}
+              src={`${import.meta.env.BASE_URL}assets/logo-2b.png`}
               alt="Logo"
               className="mb-4"
               style={{ width: "200px", height: "auto" }}
@@ -160,7 +159,7 @@ function Signup() {
                       />
                     ) : (
                       <img
-                        src={`${basePath}/assets/clarity_user-line-p.png`}
+                        src={`${import.meta.env.BASE_URL}assets/clarity_user-line-p.png`}
                         alt="Profile"
                         className="w-28 h-28 absolute"
                       />
@@ -185,7 +184,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/ic_outline-email.png`}
+                      src={`${import.meta.env.BASE_URL}assets/ic_outline-email.png`}
                       alt="Email Icon"
                       className="w-5 h-5"
                     />
@@ -213,7 +212,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/ph_phone.png`}
+                      src={`${import.meta.env.BASE_URL}assets/ph_phone.png`}
                       alt="Phone Icon"
                       className="w-5 h-5"
                     />
@@ -241,7 +240,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/clarity_user-line.png`}
+                      src={`${import.meta.env.BASE_URL}assets/clarity_user-line.png`}
                       alt="User Icon"
                       className="w-5 h-5"
                     />
@@ -269,7 +268,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/carbon_password.png`}
+                      src={`${import.meta.env.BASE_URL}assets/carbon_password.png`}
                       alt="Password Icon"
                       className="w-5 h-5"
                     />
@@ -297,7 +296,7 @@ function Signup() {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/carbon_password.png`}
+                      src={`${import.meta.env.BASE_URL}assets/carbon_password.png`}
                       alt="Password Icon"
                       className="w-5 h-5"
                     />
@@ -365,7 +364,7 @@ function Signup() {
               </div>
               {errorMessage && (
                 <div className="w-full uppercase text-sm md:text-xl items-center border-4 justify-center flex flex-row  font-inten border-[#D8814F] text-[#D8814F] px-4 py-3 my-2 rounded ">
-                  <img src={`${basePath}/assets/icons/error.png`} alt="" />
+                  <img src={`${import.meta.env.BASE_URL}assets/icons/error.png`} alt="" />
                   {errorMessage}
                 </div>
               )}

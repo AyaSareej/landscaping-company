@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HorizontalScrollSection = ({ titleId, items }) => {
-  const basePath =
-    import.meta.env.MODE === "production" ? "/landscaping-company" : "";
-    
+  const basePath = import.meta.env.MODE === "production" ? "" : "";
+
   const getTitleById = (id) => {
     switch (id) {
       case "Floor":
@@ -21,9 +20,8 @@ const HorizontalScrollSection = ({ titleId, items }) => {
         return "Shrubs";
       case "pavements":
         return "Pavements";
-      // Add more cases as needed
       default:
-        return "default"; // Fallback title
+        return "default";
     }
   };
 
@@ -45,7 +43,7 @@ const HorizontalScrollSection = ({ titleId, items }) => {
             <button className="bg-[#074143] text-custom-light font-inten font-medium md:text-[28px] py-2 px-6 rounded hover:bg-green-600 transition duration-200 flex items-center justify-center space-x-4">
               <span className="uppercase">View All</span>
               <img
-                src={`${basePath}/assets/icons/Vector (2).png`}
+                src={`${import.meta.env.BASE_URL}assets/icons/Vector (2).png`}
                 alt="View All Icon"
                 className="w-7 h-7"
               />

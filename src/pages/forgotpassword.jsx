@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
 
-const basePath =
-  import.meta.env.MODE === "production" ? "/landscaping-company" : "";
+const basePath = import.meta.env.MODE === 'production' ? '' : '';
+
 
 const ChangePassword = () => {
   const [email, setEmail] = useState(""); 
@@ -70,7 +70,7 @@ const ChangePassword = () => {
         {/* Left Side: Background Image */}
         <div className="md:w-1/2 w-full relative">
           <img
-            src={`${basePath}/assets/Rectangle%2011%20(5).png`}
+            src={`${import.meta.env.BASE_URL}assets/Rectangle%2011%20(5).png`}
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -90,7 +90,7 @@ const ChangePassword = () => {
           >
             {/* Logo */}
             <img
-              src={`${basePath}/assets/logo-2b.png`}
+              src={`${import.meta.env.BASE_URL}assets/logo-2b.png`}
               alt="Logo"
               className="mb-4"
               style={{ width: "200px", height: "auto" }}
@@ -128,7 +128,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/ic_outline-email.png`}
+                      src={`${import.meta.env.BASE_URL}assets/ic_outline-email.png`}
                       alt="Email Icon"
                       className="w-5 h-5"
                     />
@@ -154,7 +154,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/carbon_password.png`}
+                      src={`${import.meta.env.BASE_URL}assets/carbon_password.png`}
                       alt="Key Icon"
                       className="w-5 h-5"
                     />
@@ -180,7 +180,7 @@ const ChangePassword = () => {
                 <div className="relative">
                   <span className="absolute left-3 top-3">
                     <img
-                      src={`${basePath}/assets/carbon_password.png`}
+                      src={`${import.meta.env.BASE_URL}assets/carbon_password.png`}
                       alt="Key Icon"
                       className="w-5 h-5"
                     />
